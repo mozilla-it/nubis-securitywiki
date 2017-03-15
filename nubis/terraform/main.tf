@@ -7,8 +7,6 @@ module "worker" {
   purpose      = "webserver"
   ami          = "${var.ami}"
   elb          = "${module.load_balancer.name}"
-  ssh_key_file = "${var.ssh_key_file}"
-  ssh_key_name = "${var.ssh_key_name}"
   min_instances = 2
   nubis_user_groups = "team_webops"
   nubis_sudo_groups = "nubis_global_admins,team_webops"
