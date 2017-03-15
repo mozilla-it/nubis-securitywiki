@@ -3,9 +3,22 @@
   {
     "type": "shell",
     "inline": [
-      "true"
+      "sudo apt update",
+      "sudo mkdir -p /var/www/html",
     ],
-    "order": "99"
+    "order": "1"
+  },
+  {
+    "type": "file",
+    "source": "core/",
+    "destination": "/var/www/html",
+    "order": "2"
+  },
+  {
+    "type": "file",
+    "source": "mediawiki-skins-gmo/skins/",
+    "destination": "/var/www/html/skins",
+    "order": "3"
   }
 ]
 }
