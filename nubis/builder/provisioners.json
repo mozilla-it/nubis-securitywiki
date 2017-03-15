@@ -4,7 +4,7 @@
     "type": "shell",
     "inline": [
       "sudo apt update",
-      "sudo mkdir -p /var/www/html",
+      "sudo mkdir -p /var/www/html"
     ],
     "order": "1"
   },
