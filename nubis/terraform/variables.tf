@@ -1,5 +1,5 @@
 variable "account" {
-  default = ""
+  default = "appsvcs-securitywiki"
 }
 
 variable "region" {
@@ -15,12 +15,3 @@ variable "service_name" {
 }
 
 variable "ami" {}
-
-variable "ssh_key_file" {
-  default = ""
-}
-
-variable "ssh_key_name" {
-  default = ""
-}
-
