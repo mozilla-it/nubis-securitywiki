@@ -1,0 +1,6 @@
+[submodule "core"]
+	path = core
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/core.git
+[submodule "mediawiki-skins-gmo"]
+	path = mediawiki-skins-gmo
+	url = https://github.com/MozillaWiki/mediawiki-skins-gmo
