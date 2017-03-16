@@ -1,6 +1,6 @@
 # Copy index page to Apache web root
 
-file { '/var/www/html/LocalSettings.php':
+file { '/var/www/mediawiki/LocalSettings.php':
   ensure => file,
   owner  => root,
   group  => root,
