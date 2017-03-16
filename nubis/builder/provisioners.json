@@ -4,21 +4,17 @@
     "type": "shell",
     "inline": [
       "sudo apt update",
-      "sudo mkdir -p /var/www/html"
+      "sudo mkdir -p /var/www/mediawiki",
+      "sudo mkdir -p -m 755 /var/www/mediawiki",
+      "sudo chown ubuntu:ubuntu /var/www/mediawiki"
     ],
     "order": "1"
   },
   {
     "type": "file",
     "source": "core/",
-    "destination": "/var/www/html",
+    "destination": "/var/www/mediawiki",
     "order": "2"
-  },
-  {
-    "type": "file",
-    "source": "mediawiki-skins-gmo/skins/",
-    "destination": "/var/www/html/skins",
-    "order": "3"
   }
 ]
 }
