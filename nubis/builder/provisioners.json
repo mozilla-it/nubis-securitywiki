@@ -4,21 +4,33 @@
     "type": "shell",
     "inline": [
       "sudo apt update",
-      "sudo mkdir -p /var/www/html"
+      "sudo mkdir -p /var/www/mediawiki",
+      "sudo mkdir -p -m 755 /var/www/mediawiki",
+      "sudo chown ubuntu:ubuntu /var/www/mediawiki"
     ],
     "order": "1"
   },
   {
     "type": "file",
     "source": "core/",
-    "destination": "/var/www/html",
-    "order": "2"
+    "destination": "/var/www/mediawiki",
+    "order": "97"
   },
   {
     "type": "file",
     "source": "mediawiki-skins-gmo/skins/",
-    "destination": "/var/www/html/skins",
-    "order": "3"
+    "destination": "/var/www/mediawiki/skins",
+    "order": "98"
+  },
+  {
+    "type": "shell",
+    "inline": [
+      "sudo php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\"",
+      "sudo php -r \"if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;\"",
+      "sudo php composer-setup.php",
+      "cd /var/www/mediawiki && sudo php composer.phar install --no-dev"
+    ],
+    "order": 99"
   }
 ]
 }

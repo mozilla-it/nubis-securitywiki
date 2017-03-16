@@ -12,7 +12,7 @@ apache::vhost { $project_name:
     serveradmin        => 'webops@mozilla.com',
     port               => 80,
     default_vhost      => true,
-    docroot            => '/var/www/html',
+    docroot            => '/var/www/mediawiki',
     directoryindex     => 'index.php',
     docroot_owner      => 'root',
     docroot_group      => 'root',
