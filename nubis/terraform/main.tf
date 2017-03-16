@@ -20,6 +20,15 @@ module "load_balancer" {
   service_name = "${var.service_name}"
 }
 
+module "database" {
+  source                 = "github.com/nubisproject/nubis-terraform//database?ref=v1.3.0"
+  region                 = "${var.region}"
+  environment            = "${var.environment}"
+  account                = "${var.account}"
+  service_name           = "${var.service_name}"
+  client_security_groups = "${module.worker.security_group}"
+}
+
 module "dns" {
   source       = "github.com/nubisproject/nubis-terraform//dns?ref=v1.3.0"
   region       = "${var.region}"
@@ -28,4 +37,3 @@ module "dns" {
   service_name = "${var.service_name}"
   target       = "${module.load_balancer.address}"
 }
-
