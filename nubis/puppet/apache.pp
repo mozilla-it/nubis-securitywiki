@@ -13,7 +13,7 @@ apache::vhost { $project_name:
     port               => 80,
     default_vhost      => true,
     docroot            => '/var/www/mediawiki',
-    directoryindex     => 'index.php',
+    directoryindex     => 'hello.php',
     docroot_owner      => 'root',
     docroot_group      => 'root',
     block              => ['scm'],
