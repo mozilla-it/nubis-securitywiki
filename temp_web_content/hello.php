@@ -5,14 +5,14 @@ if(file_exists($nubisConfig)){
   require_once($nubisConfig);
 }
 
-echo "Hello, Nubis world!\n";
+echo "Hello, Nubis world!<br>\n";
 
-echo "Database is $DB_NAME\n";
+echo "Database is $DB_NAME<br>\n";
 
-echo "Server is $DB_SERVER\n";
+echo "Server is $DB_SERVER<br>\n";
 
-echo "Username is $DB_USERNAME\n";
+echo "Username is $DB_USERNAME<br>\n";
 
-echo "Database password is a secret, but check \$DB_PASSWORD\n"
+echo "Database password is a secret, but check \$DB_PASSWORD<br>\n";
 
 ?>
