@@ -62,7 +62,7 @@ $wgEmailAuthentication = true;
 $wgDBtype           = "mysql";
 $wgDBserver         = $DB_SERVER;
 $wgDBname           = $DB_NAME;
-$wgDBuser           = $DB_USER;
+$wgDBuser           = $DB_USERNAME;
 $wgDBpassword       = $DB_PASSWORD;
 
 # MySQL specific settings
