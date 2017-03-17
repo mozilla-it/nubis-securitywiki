@@ -37,8 +37,7 @@ $wgArticlePath      = "/$1";
 #$wgUsePathInfo      = true;
 
 ## The protocol and server name to use in fully-qualified URLs
-# $wgServer           = $SITE_URL;
-# $wgServer             = "";
+$wgServer           = $SITE_URL;
 
 ## The relative URL path to the skins directory
 $wgStylePath        = "$wgScriptPath/skins";
