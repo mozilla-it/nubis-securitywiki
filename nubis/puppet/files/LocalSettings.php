@@ -15,6 +15,12 @@ if ( !defined( 'MEDIAWIKI' ) ) {
     exit;
 }
 
+$nubisConfig = "/etc/nubis-config/securitywiki.php";
+
+if(file_exists($nubisConfig)){
+  require_once($nubisConfig);
+}
+
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
@@ -54,10 +60,10 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype           = "mysql";
-$wgDBserver         = "server";
-$wgDBname           = "db";
-$wgDBuser           = "user";
-$wgDBpassword       = "password";
+$wgDBserver         = $DB_SERVER;
+$wgDBname           = $DB_NAME;
+$wgDBuser           = $DB_USERNAME;
+$wgDBpassword       = $DB_PASSWORD;
 
 # MySQL specific settings
 $wgDBprefix         = "";
