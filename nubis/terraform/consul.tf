@@ -50,4 +50,11 @@ resource "consul_keys" "config" {
     value  = "${module.database.password}"
     delete = true
   }
+
+  key {
+    name   = "site_url"
+    path   = "${module.consul.config_prefix}/SITE_URL"
+    value  = "https://${module.dns.fqdn}"
+    delete = true
+  }
 }
