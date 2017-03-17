@@ -8,8 +8,7 @@ module "worker" {
   ami          = "${var.ami}"
   elb          = "${module.load_balancer.name}"
   min_instances = 2
-  nubis_user_groups = ""
-  nubis_sudo_groups = "nubis_global_admins,team_webops"
+  nubis_sudo_groups = "team_webops,nubis_global_admins"
 }
 
 module "load_balancer" {
