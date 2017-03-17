@@ -2,9 +2,12 @@
 	path = core
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/core.git
 	branch = REL1_23
-[submodule "mediawiki-skins-gmo"]
-  path = mediawiki-skins-gmo
-  url = https://github.com/MozillaWiki/mediawiki-skins-gmo
 [submodule "extensions/Auth_remoteuser"]
 	path = extensions/Auth_remoteuser
 	url = https://gerrit.wikimedia.org/r/mediawiki/extensions/Auth_remoteuser
+[submodule "skins/Cavendish"]
+	path = skins/Cavendish
+	url = https://github.com/DaSchTour/Cavendish.git
+[submodule "skins/gmo"]
+	path = skins/gmo
+	url = https://github.com/MozillaWiki/mediawiki-skins-gmo
