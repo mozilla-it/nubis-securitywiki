@@ -5,3 +5,8 @@ include mysql::client
 
 include nubis_configuration
 
+nubis::configuration { $project_name:
+  format => 'php',
+  #This is a PHP app, doesn't really need reloading
+  #reload => '/etc/init.d/apache2 reload',
+}

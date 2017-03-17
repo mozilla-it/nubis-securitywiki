@@ -15,6 +15,12 @@ if ( !defined( 'MEDIAWIKI' ) ) {
     exit;
 }
 
+$nubisConfig = "/etc/nubis-config/securitywiki.php";
+
+if(file_exists($nubisConfig)){
+  require_once($nubisConfig);
+}
+
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
