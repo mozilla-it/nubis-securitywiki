@@ -5,3 +5,6 @@
 [submodule "mediawiki-skins-gmo"]
   path = mediawiki-skins-gmo
   url = https://github.com/MozillaWiki/mediawiki-skins-gmo
+[submodule "extensions/Auth_remoteuser"]
+	path = extensions/Auth_remoteuser
+	url = https://gerrit.wikimedia.org/r/mediawiki/extensions/Auth_remoteuser
