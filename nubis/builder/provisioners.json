@@ -18,6 +18,18 @@
   },
   {
     "type": "file",
+    "source": "extensions/",
+    "destination": "/var/www/mediawiki/extensions",
+    "order": "2"
+  },
+  {
+    "type": "file",
+    "source": "skins/",
+    "destination": "/var/www/mediawiki/skins",
+    "order": "2"
+  },
+  {
+    "type": "file",
     "source": "temp_web_content/",
     "destination": "/var/www/mediawiki",
     "order": "3"
