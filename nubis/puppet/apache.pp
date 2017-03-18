@@ -34,7 +34,7 @@ apache::vhost { $project_name:
         mellon_enable              => 'info',
         auth_type                  => 'none'
       }
-    ]
+    ],
     block              => ['scm'],
     setenvif           => [
       'X_FORWARDED_PROTO https HTTPS=on',
