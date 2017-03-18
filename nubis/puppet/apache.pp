@@ -13,7 +13,7 @@ apache::vhost { $project_name:
     port               => 80,
     default_vhost      => true,
     docroot            => '/var/www/mediawiki',
-    directoryindex     => 'hello.php',
+    directoryindex     => 'index.php',
     docroot_owner      => 'root',
     docroot_group      => 'root',
     directories        => [
@@ -58,17 +58,17 @@ FileETag None
         rewrite_cond => ['%{HTTP:X-Forwarded-Proto} =http'],
         rewrite_rule => ['. https://%{HTTP:Host}%{REQUEST_URI} [L,R=permanent]'],
       }
-#      {
-#        comment      => 'Don\'t rewrite requests for files in MediaWiki subdirectories, MediaWiki PHP files, HTTP error documents, favicon.ico, or robots.txt',
-#        rewrite_cond => [
-#  '%{REQUEST_URI} !^/(stylesheets|images|skins|documents)/',
-#  '%{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php',
-#  '%{REQUEST_URI} !^/error/(40(1|3|4)|500).html',
-#  '%{REQUEST_URI} !^/favicon.ico',
-#  '%{REQUEST_URI} !^/robots.txt',
-#  '%{REQUEST_URI} !^/mellon/',
-#],
-#        rewrite_rule => ['^(.*)$ /var/www/securitywiki/index.php [L]'],
-#      },
+      {
+        comment      => 'Don\'t rewrite requests for files in MediaWiki subdirectories, MediaWiki PHP files, HTTP error documents, favicon.ico, or robots.txt',
+        rewrite_cond => [
+          '%{REQUEST_URI} !^/(stylesheets|images|skins|documents)/',
+          '%{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php',
+          '%{REQUEST_URI} !^/error/(40(1|3|4)|500).html',
+          '%{REQUEST_URI} !^/favicon.ico',
+          '%{REQUEST_URI} !^/robots.txt',
+          '%{REQUEST_URI} !^/mellon/',
+        ],
+        rewrite_rule => ['^(.*)$ /index.php [L]'],
+      },
     ]
 }
