@@ -1,4 +1,3 @@
-okta-idp.toml
 [template]
 src = "okta-idp.tmpl"
 dest = "/etc/apache2/mozilla/mellon/securitywiki.allizom.org.idp-metadata.xml"

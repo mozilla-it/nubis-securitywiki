@@ -1,4 +1,3 @@
-okta-key.toml
 [template]
 src = "okta-key.tmpl"
 dest = "/etc/apache2/mozilla/mellon/securitywiki.allizom.org.key"
