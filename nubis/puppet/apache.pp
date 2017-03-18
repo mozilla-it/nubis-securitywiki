@@ -36,10 +36,10 @@ apache::vhost { $project_name:
       },
       {
         path                       => '/status',
-        provider                   => 'location',
-        mellon_enable              => 'false',
+        provider                   => 'directory',
+        mellon_enable              => 'off',
         auth_type                  => 'none',
-        auth_require               => 'all-granted'
+        auth_require               => 'all granted'
       }
     ],
     block              => ['scm'],
