@@ -1,0 +1,12 @@
+okta-key.toml
+[template]
+src = "okta-key.tmpl"
+dest = "/etc/apache2/mozilla/mellon/securitywiki.allizom.org.key"
+prefix = "/securitywiki-stage/stage"
+
+keys = [
+    "/config-okta"
+]
+
+reload_cmd = "/usr/sbin/apachectl graceful"
+

@@ -1,0 +1,12 @@
+okta-idp.toml
+[template]
+src = "okta-idp.tmpl"
+dest = "/etc/apache2/mozilla/mellon/securitywiki.allizom.org.idp-metadata.xml"
+prefix = "/securitywiki-stage/stage"
+
+keys = [
+    "/config-okta"
+]
+
+reload_cmd = "/usr/sbin/apachectl graceful"
+
