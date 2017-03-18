@@ -33,6 +33,13 @@ apache::vhost { $project_name:
         provider                   => 'location',
         mellon_enable              => 'info',
         auth_type                  => 'none'
+      },
+      {
+        path                       => '/status',
+        provider                   => 'location',
+        mellon_enable              => 'false',
+        auth_type                  => 'none',
+        auth_require               => 'all-granted'
       }
     ],
     block              => ['scm'],
