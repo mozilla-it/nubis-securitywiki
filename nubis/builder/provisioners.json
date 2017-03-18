@@ -33,6 +33,13 @@
     "source": "temp_web_content/",
     "destination": "/var/www/mediawiki",
     "order": "3"
+  },
+  {
+    "type": "shell",
+    "inline": [
+      "sudo mkdir -p /etc/apache2/mozilla/mellon"
+    ],
+    "order": "99"
   }
 ]
 }
