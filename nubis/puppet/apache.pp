@@ -16,6 +16,25 @@ apache::vhost { $project_name:
     directoryindex     => 'hello.php',
     docroot_owner      => 'root',
     docroot_group      => 'root',
+    directories        => [
+      {
+        path                       => '/',
+        provider                   => 'location',
+        mellon_enable              => 'auth',
+        mellon_sp_private_key_file => '/etc/httpd/mozilla/mellon/securitywiki.allizom.org.key',
+        mellon_sp_cert_file        => '/etc/httpd/mozilla/mellon/securitywiki.allizom.org.cert',
+        mellon_sp_metadata_file    => '/etc/httpd/mozilla/mellon/securitywiki.allizom.org.xml',
+        mellon_idp_metadata_file   => '/etc/httpd/mozilla/mellon/securitywiki.allizom.org.idp-metadata.xml',
+        mellon_endpoint_path       => '/mellon',
+        auth_require               => 'valid-user'
+      },
+      {
+        path                       => '/mellon',
+        provider                   => 'location',
+        mellon_enable              => 'info',
+        auth_type                  => 'none'
+      }
+    ]
     block              => ['scm'],
     setenvif           => [
       'X_FORWARDED_PROTO https HTTPS=on',
