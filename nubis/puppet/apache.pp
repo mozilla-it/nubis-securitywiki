@@ -44,9 +44,9 @@ apache::vhost { $project_name:
     access_log_env_var => '!internal',
     access_log_format  => '%a %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"',
     custom_fragment    => "
-# Clustered without coordination
-FileETag None
-",
+    # Clustered without coordination
+    FileETag None
+    ",
     headers            => [
       "set X-Nubis-Version ${project_version}",
       "set X-Nubis-Project ${project_name}",
@@ -69,6 +69,6 @@ FileETag None
           '%{REQUEST_URI} !^/mellon/',
         ],
         rewrite_rule => ['^(.*)$ /index.php [L]'],
-      },
+      }
     ]
 }
