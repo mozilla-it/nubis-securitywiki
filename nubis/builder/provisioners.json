@@ -5,8 +5,9 @@
     "inline": [
       "sudo apt update",
       "sudo mkdir -p /var/www/mediawiki",
-      "sudo mkdir -p -m 755 /var/www/mediawiki",
-      "sudo mkdir /var/www/mediawiki/status",
+      "sudo mkdir -p -m 755 /var/www/mediawiki/status",
+      "sudo echo 'status => ok' > /var/www/mediawiki/status/index.html",
+      "sudo chmod 644 /var/www/mediawiki/status/index.html",
       "sudo chown ubuntu:ubuntu /var/www/mediawiki"
     ],
     "order": "1"

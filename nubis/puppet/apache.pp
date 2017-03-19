@@ -35,7 +35,7 @@ apache::vhost { $project_name:
         auth_type                  => 'none'
       },
       {
-        path                       => '/status',
+        path                       => '/status/index.html',
         provider                   => 'location',
         mellon_enable              => 'off',
         auth_type                  => 'none',
