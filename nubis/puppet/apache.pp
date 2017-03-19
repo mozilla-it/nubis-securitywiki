@@ -33,14 +33,6 @@ apache::vhost { $project_name:
         provider                   => 'location',
         mellon_enable              => 'info',
         auth_type                  => 'none'
-      },
-      {
-        path                       => '/status/index.html',
-        provider                   => 'location',
-        mellon_enable              => 'off',
-        auth_type                  => 'none',
-        auth_require               => 'all granted',
-        php_values                 => ['engine off']
       }
     ],
     block              => ['scm'],
@@ -78,4 +70,14 @@ apache::vhost { $project_name:
         rewrite_rule => ['^(.*)$ /index.php [L]'],
       }
     ]
+}
+
+apache::vhost { "svc-healthcheck":
+    serveradmin    => 'webops@mozilla.com',
+    port           => 81,
+    default_vhost  => false,
+    docroot        => '/var/www/healthcheck',
+    directoryindex => 'index.html',
+    docroot_owner  => 'root',
+    docroot_group  => 'root'
 }

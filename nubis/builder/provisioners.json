@@ -6,8 +6,9 @@
       "sudo apt update",
       "sudo mkdir -p /var/www/mediawiki",
       "sudo mkdir -p -m 755 /var/www/mediawiki/status",
+      "sudo mkdir -m 755 /var/www/healthcheck",
       "sudo chown ubuntu:ubuntu /var/www/mediawiki",
-      "sudo chown ubuntu:ubuntu /var/www/mediawiki/status"
+      "sudo chown ubuntu:ubuntu /var/www/healthcheck"
     ],
     "order": "1"
   },
@@ -38,7 +39,7 @@
   {
     "type": "file",
     "source": "health_check/",
-    "destination": "/var/www/mediawiki/status",
+    "destination": "/var/www/healthcheck",
     "order": "5"
   },
   {
