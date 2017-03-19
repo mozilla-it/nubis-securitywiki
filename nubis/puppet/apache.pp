@@ -39,7 +39,8 @@ apache::vhost { $project_name:
         provider                   => 'location',
         mellon_enable              => 'off',
         auth_type                  => 'none',
-        auth_require               => 'all granted'
+        auth_require               => 'all granted',
+        php_values                 => 'engine off'
       }
     ],
     block              => ['scm'],
