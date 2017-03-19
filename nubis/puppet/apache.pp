@@ -40,7 +40,7 @@ apache::vhost { $project_name:
         mellon_enable              => 'off',
         auth_type                  => 'none',
         auth_require               => 'all granted',
-        php_values                 => 'engine off'
+        php_values                 => ['engine off']
       }
     ],
     block              => ['scm'],
