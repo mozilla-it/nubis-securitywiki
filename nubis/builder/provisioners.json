@@ -6,7 +6,8 @@
       "sudo apt update",
       "sudo mkdir -p /var/www/mediawiki",
       "sudo mkdir -p -m 755 /var/www/mediawiki/status",
-      "sudo chown ubuntu:ubuntu /var/www/mediawiki"
+      "sudo chown ubuntu:ubuntu /var/www/mediawiki",
+      "sudo chown ubuntu:ubuntu /var/www/mediawiki/status"
     ],
     "order": "1"
   },
