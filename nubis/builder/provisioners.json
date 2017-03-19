@@ -6,8 +6,6 @@
       "sudo apt update",
       "sudo mkdir -p /var/www/mediawiki",
       "sudo mkdir -p -m 755 /var/www/mediawiki/status",
-      "sudo echo 'status => ok' > /var/www/mediawiki/status/index.html",
-      "sudo chmod 644 /var/www/mediawiki/status/index.html",
       "sudo chown ubuntu:ubuntu /var/www/mediawiki"
     ],
     "order": "1"
@@ -28,13 +26,19 @@
     "type": "file",
     "source": "skins/",
     "destination": "/var/www/mediawiki/skins",
-    "order": "2"
+    "order": "3"
   },
   {
     "type": "file",
     "source": "temp_web_content/",
     "destination": "/var/www/mediawiki",
-    "order": "3"
+    "order": "4"
+  },
+  {
+    "type": "file",
+    "source": "health_check/",
+    "destination": "/var/www/mediawiki/status",
+    "order": "5"
   },
   {
     "type": "shell",
