@@ -5,7 +5,6 @@
     "inline": [
       "sudo apt update",
       "sudo mkdir -p /var/www/mediawiki",
-      "sudo mkdir -p -m 755 /var/www/mediawiki/status",
       "sudo mkdir -m 755 /var/www/healthcheck",
       "sudo chown ubuntu:ubuntu /var/www/mediawiki",
       "sudo chown ubuntu:ubuntu /var/www/healthcheck"
@@ -32,15 +31,9 @@
   },
   {
     "type": "file",
-    "source": "temp_web_content/",
-    "destination": "/var/www/mediawiki",
-    "order": "4"
-  },
-  {
-    "type": "file",
     "source": "health_check/",
     "destination": "/var/www/healthcheck",
-    "order": "5"
+    "order": "4"
   },
   {
     "type": "shell",
