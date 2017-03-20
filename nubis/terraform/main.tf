@@ -17,6 +17,7 @@ module "load_balancer" {
   environment  = "${var.environment}"
   account      = "${var.account}"
   service_name = "${var.service_name}"
+  health_check_target = "HTTP:81"
 }
 
 module "database" {
