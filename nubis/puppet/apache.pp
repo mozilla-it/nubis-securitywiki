@@ -17,29 +17,49 @@ apache::vhost { $project_name:
     directoryindex     => 'index.php',
     docroot_owner      => 'root',
     docroot_group      => 'root',
-    # Enforce authentication across the entire site
-    directories        => [
-      {
-        path                                      => '/',
-        provider                                  => 'location',
-        mellon_enable                             => 'auth',
-        mellon_sp_private_key_file                => '/etc/apache2/mozilla/mellon/securitywiki.allizom.org.key',
-        mellon_sp_cert_file                       => '/etc/apache2/mozilla/mellon/securitywiki.allizom.org.cert',
-        mellon_sp_metadata_file                   => '/etc/apache2/mozilla/mellon/securitywiki.allizom.org.xml',
-        mellon_idp_metadata_file                  => '/etc/apache2/mozilla/mellon/securitywiki.allizom.org.idp-metadata.xml',
-        mellon_endpoint_path                      => '/mellon',
-        auth_require                              => 'valid-user',
-        mellon_secure_cookie                        => 'On',
-        mellon_subject_confirmation_data_address_check => 'Off',
-        auth_type                                  => 'Mellon'
-      },
-      {
-        path                       => '/mellon',
-        provider                   => 'location',
-        mellon_enable              => 'info',
-        auth_type                  => 'none'
-      }
-    ],
+
+    custom_fragment    => "
+        # Configure an SSO application at the APPURL provided when generating the metadata XML
+    <Location />
+        # This is the Mellon endpoint provided when generating the metadata XML.
+        MellonEndpointPath /mellon
+
+        # These are the generated private key, certificate, and metadata XML files.
+        MellonSPPrivateKeyFile /etc/apache2/mozilla/mellon/securitywiki.allizom.org.key
+        MellonSPCertFile /etc/apache2/mozilla/mellon/securitywiki.allizom.org.cert
+        MellonSPMetadataFile /etc/apache2/mozilla/mellon/securitywiki.allizom.org.xml
+
+        # This IdP Metadata XML binds this application to our SSO IdP (Okta).
+        MellonIdPMetadataFile /etc/apache2/mozilla/mellon/securitywiki.allizom.org.idp-metadata.xml
+
+        # Various other options that do not vary between sites.
+        MellonSecureCookie On
+        MellonSubjectConfirmationDataAddressCheck Off
+    </Location>
+
+    # This public, unrestricted endpoint is necessary for SAML communication with Mellon.
+    <Location /mellon>
+        # We do NOT specify MellonEnable 'none' here, because we need Mellon to process requests to this endpoint.
+
+        # Disable authentication for this endpoint.
+        AuthType none
+
+        # Allow all requests to this endpoint.
+        Order allow,deny
+        Allow from all
+        Satisfy any
+    </Location>
+
+    # Continue below for Location-specific Mellon 'authorization required' configs.
+    <Location />
+        # Mellon will intercept requests that do not provide a non-expired session cookie and redirect them momentarily to Okta.
+        MellonEnable 'auth'
+        AuthType Mellon
+        # Ensure that we authenticated a valid user through Okta and Mellon. This provides a layer of defense against unplanned issues.
+        require valid-user
+    </Location>
+    ",
+
     block              => ['scm'],
     setenvif           => [
       'X_FORWARDED_PROTO https HTTPS=on',
