@@ -1,22 +1,22 @@
 module "worker" {
-  source       = "github.com/nubisproject/nubis-terraform//worker?ref=v1.3.0"
-  region       = "${var.region}"
-  environment  = "${var.environment}"
-  account      = "${var.account}"
-  service_name = "${var.service_name}"
-  purpose      = "webserver"
-  ami          = "${var.ami}"
-  elb          = "${module.load_balancer.name}"
-  min_instances = 2
+  source            = "github.com/nubisproject/nubis-terraform//worker?ref=v1.3.0"
+  region            = "${var.region}"
+  environment       = "${var.environment}"
+  account           = "${var.account}"
+  service_name      = "${var.service_name}"
+  purpose           = "webserver"
+  ami               = "${var.ami}"
+  elb               = "${module.load_balancer.name}"
+  min_instances     = 2
   nubis_sudo_groups = "team_webops,nubis_global_admins"
 }
 
 module "load_balancer" {
-  source       = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v1.3.0"
-  region       = "${var.region}"
-  environment  = "${var.environment}"
-  account      = "${var.account}"
-  service_name = "${var.service_name}"
+  source              = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v1.3.0"
+  region              = "${var.region}"
+  environment         = "${var.environment}"
+  account             = "${var.account}"
+  service_name        = "${var.service_name}"
   health_check_target = "HTTP:443/"
 }
 
