@@ -10,6 +10,7 @@ class { 'apache::mod::php': }
 
 apache::vhost { $project_name:
     serveradmin        => 'webops@mozilla.com',
+    servername         => 'https://securitywiki.allizom.org',
     port               => 80,
     default_vhost      => true,
     docroot            => '/var/www/mediawiki',
