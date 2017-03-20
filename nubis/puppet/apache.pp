@@ -20,15 +20,18 @@ apache::vhost { $project_name:
     # Enforce authentication across the entire site
     directories        => [
       {
-        path                       => '/',
-        provider                   => 'location',
-        mellon_enable              => 'auth',
-        mellon_sp_private_key_file => '/etc/apache2/mozilla/mellon/securitywiki.allizom.org.key',
-        mellon_sp_cert_file        => '/etc/apache2/mozilla/mellon/securitywiki.allizom.org.cert',
-        mellon_sp_metadata_file    => '/etc/apache2/mozilla/mellon/securitywiki.allizom.org.xml',
-        mellon_idp_metadata_file   => '/etc/apache2/mozilla/mellon/securitywiki.allizom.org.idp-metadata.xml',
-        mellon_endpoint_path       => '/mellon',
-        auth_require               => 'valid-user'
+        path                                      => '/',
+        provider                                  => 'location',
+        mellon_enable                             => 'auth',
+        mellon_sp_private_key_file                => '/etc/apache2/mozilla/mellon/securitywiki.allizom.org.key',
+        mellon_sp_cert_file                       => '/etc/apache2/mozilla/mellon/securitywiki.allizom.org.cert',
+        mellon_sp_metadata_file                   => '/etc/apache2/mozilla/mellon/securitywiki.allizom.org.xml',
+        mellon_idp_metadata_file                  => '/etc/apache2/mozilla/mellon/securitywiki.allizom.org.idp-metadata.xml',
+        mellon_endpoint_path                      => '/mellon',
+        auth_require                              => 'valid-user',
+        mellon_secure_cookie                        => 'On',
+        mellon_subject_confirmation_data_address_check => 'Off',
+        auth_type                                  => 'Mellon'
       },
       {
         path                       => '/mellon',
