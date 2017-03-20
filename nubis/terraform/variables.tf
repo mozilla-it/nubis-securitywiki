@@ -15,3 +15,7 @@ variable "service_name" {
 }
 
 variable "ami" {}
+
+variable "health_check_target" {
+  default = "HTTP:81/"
+}
