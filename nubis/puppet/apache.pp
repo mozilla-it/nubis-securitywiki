@@ -74,7 +74,7 @@ apache::vhost { $project_name:
 
 apache::vhost { "svc-healthcheck":
     serveradmin    => 'webops@mozilla.com',
-    port           => 81,
+    port           => 443,
     default_vhost  => false,
     docroot        => '/var/www/healthcheck',
     directoryindex => 'index.html',
