@@ -16,6 +16,7 @@ apache::vhost { $project_name:
     directoryindex     => 'index.php',
     docroot_owner      => 'root',
     docroot_group      => 'root',
+    # Enforce authentication across the entire site
     directories        => [
       {
         path                       => '/',
@@ -71,6 +72,16 @@ apache::vhost { $project_name:
       }
     ]
 }
+
+# Create a new vhost to allow the health check to pass
+#
+# I'm open to suggestions here. I started on port 81 but
+# the worker does not currently allow connections on that
+# port. I can fix that later.
+#
+# I tried to set the health check in the default vhost
+# but it would fail because the Mellon configuration
+# resulted in a 301 redirect rather than the expected 200
 
 apache::vhost { "svc-healthcheck":
     serveradmin    => 'webops@mozilla.com',
