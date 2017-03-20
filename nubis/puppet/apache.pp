@@ -58,6 +58,9 @@ apache::vhost { $project_name:
         # Ensure that we authenticated a valid user through Okta and Mellon. This provides a layer of defense against unplanned issues.
         require valid-user
     </Location>
+
+    # Clustered without coordination
+    FileETag None
     ",
 
     block              => ['scm'],
@@ -68,10 +71,6 @@ apache::vhost { $project_name:
     ],
     access_log_env_var => '!internal',
     access_log_format  => '%a %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"',
-    custom_fragment    => "
-    # Clustered without coordination
-    FileETag None
-    ",
     headers            => [
       "set X-Nubis-Version ${project_version}",
       "set X-Nubis-Project ${project_name}",
