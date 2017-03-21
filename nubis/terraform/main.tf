@@ -37,3 +37,13 @@ module "dns" {
   service_name = "${var.service_name}"
   target       = "${module.load_balancer.address}"
 }
+
+module "storage" {
+  source                 = "github.com/nubisproject/nubis-terraform//storage?ref=v1.3.0"
+  region                 = "${var.region}"
+  environment            = "${var.environment}"
+  account                = "${var.account}"
+  service_name           = "${var.service_name}"
+  storage_name           = "${var.service_name}"
+  client_security_groups = "${module.worker.security_group},${module.queue-worker.security_group},${module.push-worker.security_group}"
+}
