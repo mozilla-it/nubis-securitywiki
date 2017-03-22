@@ -58,6 +58,13 @@ apache::vhost { $project_name:
         require valid-user
     </Location>
 
+    # Allow health-checks unauthenticated
+    <Location /health.php>
+        MellonEnable Off
+        AuthType none
+        Require all granted
+    </Location>
+
     # Clustered without coordination
     FileETag None
     ",
@@ -85,7 +92,7 @@ apache::vhost { $project_name:
         comment      => 'Don\'t rewrite requests for files in MediaWiki subdirectories, MediaWiki PHP files, HTTP error documents, favicon.ico, or robots.txt',
         rewrite_cond => [
           '%{REQUEST_URI} !^/(stylesheets|images|skins|documents)/',
-          '%{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php',
+          '%{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb|health).php',
           '%{REQUEST_URI} !^/error/(40(1|3|4)|500).html',
           '%{REQUEST_URI} !^/favicon.ico',
           '%{REQUEST_URI} !^/robots.txt',
@@ -93,24 +100,4 @@ apache::vhost { $project_name:
         rewrite_rule => ['^(.*)$ /index.php [L]'],
       }
     ]
-}
-
-# Create a new vhost to allow the health check to pass
-#
-# I'm open to suggestions here. I started on port 81 but
-# the worker does not currently allow connections on that
-# port. I can fix that later.
-#
-# I tried to set the health check in the default vhost
-# but it would fail because the Mellon configuration
-# resulted in a 301 redirect rather than the expected 200
-
-apache::vhost { "svc-healthcheck":
-    serveradmin    => 'webops@mozilla.com',
-    port           => 443,
-    default_vhost  => false,
-    docroot        => '/var/www/healthcheck',
-    directoryindex => 'index.html',
-    docroot_owner  => 'root',
-    docroot_group  => 'root'
 }
