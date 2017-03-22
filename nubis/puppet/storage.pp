@@ -12,4 +12,5 @@ nubis::storage { $project_name:
 file { '/var/www/mediawiki/images':
   ensure => 'link',
   target => "/data/${project_name}/images",
+  force => true,
 }
