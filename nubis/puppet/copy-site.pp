@@ -8,7 +8,7 @@ file { '/var/www/mediawiki/LocalSettings.php':
   source => 'puppet:///nubis/files/LocalSettings.php',
 }
 
-file { '/var/www/mediawiki/skins/Cavendish':
+file { '/var/www/mediawiki/skins/cavendish':
   ensure => 'link',
   target => "/var/www/mediawiki/extensions/gmo/skins/Cavendish",
   force => true,
