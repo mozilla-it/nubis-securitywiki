@@ -13,4 +13,5 @@ file { '/var/www/mediawiki/images':
   ensure => 'link',
   force  => true,
   target => "/data/${project_name}/images",
+  force => true,
 }
