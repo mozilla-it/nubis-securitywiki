@@ -19,7 +19,7 @@ nubis::configuration { $project_name:
   #reload => '/etc/init.d/apache2 reload',
 }
 
-file { '/etc/php5/apache2/conf.d':
+file { [ '/etc/php5', '/etc/php5/apache2', '/etc/php5/apache2/conf.d' ]:
   ensure => directory,
   owner  => root,
   group  => root,
