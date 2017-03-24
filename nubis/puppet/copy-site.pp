@@ -16,7 +16,7 @@ file { '/var/www/mediawiki/health.php':
   source => 'puppet:///nubis/files/health.php',
 }
 
-file { '/var/www/mediawiki/skins/cavendish':
+file { '/var/www/mediawiki/skins/Cavendish':
   ensure => 'link',
   target => "/var/www/mediawiki/extensions/gmo/skins/Cavendish",
   force => true,

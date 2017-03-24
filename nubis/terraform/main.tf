@@ -18,6 +18,7 @@ module "load_balancer" {
   account             = "${var.account}"
   service_name        = "${var.service_name}"
   health_check_target = "HTTP:80/health.php"
+  ssl_cert_name_prefix = "securitywiki"
 }
 
 module "database" {

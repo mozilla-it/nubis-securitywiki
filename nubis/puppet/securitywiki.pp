@@ -18,3 +18,18 @@ nubis::configuration { $project_name:
   #This is a PHP app, doesn't really need reloading
   #reload => '/etc/init.d/apache2 reload',
 }
+
+file { [ '/etc/php5', '/etc/php5/apache2', '/etc/php5/apache2/conf.d' ]:
+  ensure => directory,
+  owner  => root,
+  group  => root,
+  mode   => '0744',
+}
+
+file { '/etc/php5/apache2/conf.d/30-securitywiki.ini':
+  ensure => file,
+  owner  => root,
+  group  => root,
+  mode   => '0744',
+  source => 'puppet:///nubis/files/php/30-securitywiki.ini',
+}

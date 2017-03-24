@@ -16,13 +16,13 @@ provider "consul" {
 
 # Publish our outputs into Consul for our application to consume
 resource "consul_keys" "config" {
-  # This one, the application generates, we only read it
   key {
-    name = "app_secret_key"
-    path = "${module.consul.config_prefix}/APP_SECRET_KEY"
+    name   = "environment"
+    path   = "${module.consul.config_prefix}/ENVIRONMENT"
+    value  = "${var.environment}"
+    delete = true
   }
 
-  # The rest, we publish to
   key {
     name   = "db_name"
     path   = "${module.consul.config_prefix}/DB_NAME"
