@@ -65,7 +65,7 @@ apache::vhost { $project_name:
 
     block              => ['scm'],
     setenvif           => [
-      'X_FORWARDED_PROTO https HTTPS=on',
+      'X-Forwarded-Proto https HTTPS=on',
       'Remote_Addr 127\.0\.0\.1 internal',
       'Remote_Addr ^10\. internal',
     ],
