@@ -10,7 +10,6 @@ class { 'apache::mod::php': }
 
 apache::vhost { $project_name:
     serveradmin        => 'webops@mozilla.com',
-    servername         => 'https://securitywiki.allizom.org',
     port               => 80,
     default_vhost      => true,
     docroot            => '/var/www/mediawiki',
@@ -65,7 +64,7 @@ apache::vhost { $project_name:
 
     block              => ['scm'],
     setenvif           => [
-      'X_FORWARDED_PROTO https HTTPS=on',
+      'X-Forwarded-Proto https HTTPS=on',
       'Remote_Addr 127\.0\.0\.1 internal',
       'Remote_Addr ^10\. internal',
     ],
