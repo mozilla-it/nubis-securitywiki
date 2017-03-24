@@ -37,7 +37,19 @@ $wgArticlePath      = "/$1";
 #$wgUsePathInfo      = true;
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer           = "https://securitywiki.allizom.org";
+
+# Pick the correct canonical URL
+switch($ENVIRONMENT) {
+  case "stage":
+    $wgServer           = "https://securitywiki.allizom.org";
+    break;
+  case "prod":
+    $wgServer           = "https://securitywiki.mozilla.org";
+    break;
+  default:
+    $wgServer           = $SITE_URL;
+}
+
 
 ## The relative URL path to the skins directory
 $wgStylePath        = "$wgScriptPath/skins";
