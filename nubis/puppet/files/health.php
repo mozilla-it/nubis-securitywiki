@@ -2,25 +2,15 @@
 
 require_once("/etc/nubis-config/securitywiki.php");
 
-$conn = mysql_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD);
-
-if (!$conn) {
+$mysqli = new mysqli($DB_SERVER, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
+if (!$mysqli) {
     http_response_code(500);
     echo "Can't connect to the database";
     exit;
 }
 
-$db = mysql_select_db($DB_NAME);
-
-if (!$db) {
-    http_response_code(500);
-    echo "Can't find the database $DB_NAME";
-    exit;
-}
-
-$ping = mysql_ping();
-
-if (!$ping) {
+/* check if server is alive */
+if (!$mysqli->ping()) {
     http_response_code(500);
     echo "Database ping failed";
     exit;
