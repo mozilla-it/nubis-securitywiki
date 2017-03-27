@@ -3,6 +3,7 @@
 class { 'nubis_apache':
     # Changing the Apache mpm is necessary for the Apache PHP module
     mpm_module_type => 'prefork',
+    check_url       => '/health.php',
 }
 
 class { 'apache::mod::auth_mellon': }
