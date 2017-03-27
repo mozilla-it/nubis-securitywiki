@@ -10,6 +10,7 @@ class { 'apache::mod::auth_mellon': }
 class { 'apache::mod::php': }
 
 apache::vhost { $project_name:
+    additional_includes => [ '/etc/apache2/conf.available/hostname.conf' ],
     serveradmin        => 'webops@mozilla.com',
     port               => 80,
     default_vhost      => true,
