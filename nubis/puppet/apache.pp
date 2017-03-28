@@ -26,12 +26,12 @@ apache::vhost { $project_name:
         MellonEndpointPath /mellon
 
         # These are the generated private key, certificate, and metadata XML files.
-        MellonSPPrivateKeyFile /etc/apache2/mozilla/mellon/securitywiki.allizom.org.key
-        MellonSPCertFile /etc/apache2/mozilla/mellon/securitywiki.allizom.org.cert
-        MellonSPMetadataFile /etc/apache2/mozilla/mellon/securitywiki.allizom.org.xml
+        MellonSPPrivateKeyFile /etc/apache2/mellon/securitywiki.key
+        MellonSPCertFile /etc/apache2/mellon/securitywiki.cert
+        MellonSPMetadataFile /etc/apache2/mellon/securitywiki.xml
 
         # This IdP Metadata XML binds this application to our SSO IdP (Okta).
-        MellonIdPMetadataFile /etc/apache2/mozilla/mellon/securitywiki.allizom.org.idp-metadata.xml
+        MellonIdPMetadataFile /etc/apache2/mellon/securitywiki.idp-metadata.xml
 
         # Various other options that do not vary between sites.
         MellonSecureCookie On

@@ -1,7 +1,7 @@
 [template]
 src = "okta-idp.tmpl"
-dest = "/etc/apache2/mozilla/mellon/securitywiki.allizom.org.idp-metadata.xml"
-prefix = "/securitywiki-stage/stage"
+dest = "/etc/apache2/mellon/securitywiki.idp-metadata.xml"
+prefix = "/%%PROJECT%%/%%ENVIRONMENT%%"
 
 keys = [
     "/config-okta"

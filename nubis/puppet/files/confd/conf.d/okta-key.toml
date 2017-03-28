@@ -1,7 +1,7 @@
 [template]
 src = "okta-key.tmpl"
-dest = "/etc/apache2/mozilla/mellon/securitywiki.allizom.org.key"
-prefix = "/securitywiki-stage/stage"
+dest = "/etc/apache2/mellon/securitywiki.key"
+prefix = "/%%PROJECT%%/%%ENVIRONMENT%%"
 
 keys = [
     "/config-okta"
