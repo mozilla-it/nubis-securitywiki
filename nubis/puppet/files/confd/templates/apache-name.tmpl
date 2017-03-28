@@ -1,3 +1,1 @@
-{{$servernamemap := map "prod" "https://securitywiki.mozilla.org" "stage" "https://securitywiki.allizom.org"}}
-{{$env := getv "/config/ENVIRONMENT"}}
-  ServerName {{ index $servernamemap $env}}
+{{$env:=getv "/config/ENVIRONMENT"}} ServerName {{if eq $env "prod" }} https://securitywiki.mozilla.org {{else}} https://securitywiki.allizom.org {{end}}

@@ -19,7 +19,7 @@ apache::vhost { $project_name:
     docroot_group      => 'root',
 
     custom_fragment    => "
-    # Include /etc/apache2/confs.available/hostname.conf
+    Include /etc/apache2/conf-available/hostname.conf
         # Configure an SSO application at the APPURL provided when generating the metadata XML
     <Location />
         # This is the Mellon endpoint provided when generating the metadata XML.
