@@ -40,3 +40,10 @@ file { '/etc/apache2/mellon':
   group  => root,
   mode   => '0744',
 }
+
+file { '/data/securitywiki/php_sessions':
+  ensure => directory,
+  owner  => www-data,
+  group  => www-data,
+  mode   => '0755',
+}
