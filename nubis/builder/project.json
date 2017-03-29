@@ -6,6 +6,7 @@
     "project_description": "SecurityWiki",
     "project_name": "securitywiki",
     "project_version": "v1.4.0_{{env `GIT_COMMIT_SHA`}}",
-    "source_ami_project_version": "v1.4.0"
+    "source_ami_project_version": "v1.4.0",
+    "ami_regions": "us-west-2"
   }
 }
