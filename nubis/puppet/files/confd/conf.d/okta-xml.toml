@@ -1,7 +1,7 @@
 [template]
 src = "okta-xml.tmpl"
 dest = "/etc/apache2/mellon/securitywiki.xml"
-prefix = "/%%PROJECT%%/%%ENVIRONMENT%%"
+prefix = "/%%STACK%%/%%ENVIRONMENT%%"
 
 keys = [
     "/config/okta"
