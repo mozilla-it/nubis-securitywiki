@@ -33,3 +33,10 @@ file { '/etc/php5/apache2/conf.d/30-securitywiki.ini':
   mode   => '0744',
   source => 'puppet:///nubis/files/php/30-securitywiki.ini',
 }
+
+file { '/etc/apache2/mellon':
+  ensure => directory,
+  owner  => root,
+  group  => root,
+  mode   => '0744',
+}
