@@ -45,5 +45,5 @@ file { '/data/securitywiki/php_sessions':
   ensure => directory,
   owner  => www-data,
   group  => www-data,
-  mode   => '0755',
+  mode   => '0733',
 }
