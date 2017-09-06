@@ -2,7 +2,7 @@
 include mysql::client
 
 package { "php5-mysql":
-  ensure => '5.5.9+dfsg-1ubuntu4.21'
+  ensure => '5.5.9+dfsg-1ubuntu4.22'
 }
 
 package { 'php5-xcache':
