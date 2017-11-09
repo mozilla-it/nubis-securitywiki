@@ -14,3 +14,8 @@ file { '/var/www/mediawiki/images':
   force  => true,
   target => "/data/${project_name}/images",
 }
+
+# For backups to S3
+package { 'awscli':
+  ensure => 'latest'
+}
