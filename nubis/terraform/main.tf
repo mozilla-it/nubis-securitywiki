@@ -47,3 +47,13 @@ module "storage" {
   storage_name           = "${var.service_name}"
   client_security_groups = "${module.worker.security_group}"
 }
+
+module "backup" {
+  source       = "github.com/nubisproject/nubis-terraform//bucket?ref=v2.0.1"
+  region       = "${var.region}"
+  environment  = "${var.environment}"
+  account      = "${var.account}"
+  service_name = "${var.service_name}"
+  purpose      = "backup"
+  role         = "${module.worker.role}"
+}

@@ -57,4 +57,16 @@ resource "consul_keys" "config" {
     value  = "https://${module.dns.fqdn}"
     delete = true
   }
+
+  key {
+    path   = "${module.consul.config_prefix}/Bucket/Backup/Name"
+    value  = "${module.backup.name}"
+    delete = true
+  }
+
+  key {
+    path   = "${module.consul.config_prefix}/Bucket/Backup/Region"
+    value  = "${var.region}"
+    delete = true
+  }
 }
