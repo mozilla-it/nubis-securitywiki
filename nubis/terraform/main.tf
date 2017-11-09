@@ -8,6 +8,7 @@ module "worker" {
   ami               = "${var.ami}"
   elb               = "${module.load_balancer.name}"
   nubis_sudo_groups = "team_webops,nubis_global_admins"
+  health_check_target = "HTTP:80/?redirect=0"
 }
 
 module "load_balancer" {
