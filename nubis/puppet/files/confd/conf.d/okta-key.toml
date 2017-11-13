@@ -4,7 +4,7 @@ dest = "/etc/apache2/mellon/securitywiki.key"
 prefix = "/%%STACK%%/%%ENVIRONMENT%%"
 
 keys = [
-    "/config/okta"
+    "/okta"
 ]
 
 reload_cmd = "/usr/sbin/apachectl graceful"
