@@ -6,7 +6,21 @@ class { 'nubis_apache':
     check_url       => '/health.php',
 }
 
-class { 'apache::mod::auth_mellon': }
+class { 'apache::mod::auth_mellon':
+  require => [
+    Package['liblasso3'],
+  ],
+}
+
+class { 'apt': }
+apt::ppa { 'ppa:houzefa-abba/lasso': }
+package { 'liblasso3':
+  ensure => '2.5.1-1~eob80+1+~ubuntu14.04~xcg.ppa1',
+  require => [
+    Apt::Ppa['ppa:houzefa-abba/lasso'],
+  ],
+}
+
 class { 'apache::mod::php': }
 
 apache::vhost { $project_name:
