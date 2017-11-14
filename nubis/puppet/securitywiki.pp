@@ -9,6 +9,10 @@ package { 'php5-xcache':
   ensure => '3.1.0-2'
 }
 
+package { 'php5-memcache':
+  ensure => 'latest'
+}
+
 # Use Nubis's autoconfiguration hooks to trigger out config reloads
 
 include nubis_configuration
