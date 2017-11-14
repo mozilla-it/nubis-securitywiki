@@ -8,6 +8,9 @@ module "worker" {
   ami               = "${var.ami}"
   elb               = "${module.load_balancer.name}"
   nubis_sudo_groups = "team_webops,nubis_global_admins"
+  # CPU utilisation based autoscaling (with good defaults)
+  scale_load_defaults = true
+  min_instances     = 2
 }
 
 module "load_balancer" {
