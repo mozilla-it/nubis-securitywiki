@@ -18,12 +18,12 @@ file { '/var/www/mediawiki/health.php':
 
 file { '/var/www/mediawiki/skins/Cavendish':
   ensure => 'link',
-  target => "/var/www/mediawiki/extensions/gmo/skins/Cavendish",
-  force => true,
+  target => '/var/www/mediawiki/extensions/gmo/skins/Cavendish',
+  force  => true,
 }
 
 file { '/var/www/mediawiki/skins/gmo':
   ensure => 'link',
-  target => "/var/www/mediawiki/extensions/gmo/skins/gmo",
-  force => true,
+  target => '/var/www/mediawiki/extensions/gmo/skins/gmo',
+  force  => true,
 }

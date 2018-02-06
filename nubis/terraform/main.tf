@@ -8,18 +8,19 @@ module "worker" {
   ami               = "${var.ami}"
   elb               = "${module.load_balancer.name}"
   nubis_sudo_groups = "team_webops,nubis_global_admins"
+
   # CPU utilisation based autoscaling (with good defaults)
   scale_load_defaults = true
-  min_instances     = 2
+  min_instances       = 2
 }
 
 module "load_balancer" {
-  source              = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.0.4"
-  region              = "${var.region}"
-  environment         = "${var.environment}"
-  account             = "${var.account}"
-  service_name        = "${var.service_name}"
-  health_check_target = "HTTP:80/health.php"
+  source               = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.0.4"
+  region               = "${var.region}"
+  environment          = "${var.environment}"
+  account              = "${var.account}"
+  service_name         = "${var.service_name}"
+  health_check_target  = "HTTP:80/health.php"
   ssl_cert_name_prefix = "securitywiki"
 }
 
