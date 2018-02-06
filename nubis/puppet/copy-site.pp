@@ -1,6 +1,6 @@
 # Copy index page to Apache web root
 
-file { '/var/www/mediawiki/LocalSettings.php':
+file { "/var/www/${project_name}/LocalSettings.php":
   ensure => file,
   owner  => root,
   group  => root,
@@ -8,7 +8,7 @@ file { '/var/www/mediawiki/LocalSettings.php':
   source => 'puppet:///nubis/files/LocalSettings.php',
 }
 
-file { '/var/www/mediawiki/health.php':
+file { "/var/www/${project_name}/health.php":
   ensure => file,
   owner  => root,
   group  => root,
@@ -16,14 +16,14 @@ file { '/var/www/mediawiki/health.php':
   source => 'puppet:///nubis/files/health.php',
 }
 
-file { '/var/www/mediawiki/skins/Cavendish':
+file { "/var/www/${project_name}/skins/Cavendish":
   ensure => 'link',
-  target => '/var/www/mediawiki/extensions/gmo/skins/Cavendish',
+  target => "/var/www/${project_name}/extensions/gmo/skins/Cavendish",
   force  => true,
 }
 
-file { '/var/www/mediawiki/skins/gmo':
+file { "/var/www/${project_name}/skins/gmo":
   ensure => 'link',
-  target => '/var/www/mediawiki/extensions/gmo/skins/gmo',
+  target => "/var/www/${project_name}/extensions/gmo/skins/gmo",
   force  => true,
 }

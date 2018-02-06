@@ -4,27 +4,27 @@
     "type": "shell",
     "inline": [
       "sudo apt update",
-      "sudo mkdir -p /var/www/mediawiki",
-      "sudo chown ubuntu:ubuntu /var/www/mediawiki"
+      "sudo mkdir -p /var/www/{{user `project_name`}}",
+      "sudo chown ubuntu:ubuntu /var/www/{{user `project_name`}}"
     ],
     "order": "1"
   },
   {
     "type": "file",
     "source": "core/",
-    "destination": "/var/www/mediawiki",
+    "destination": "/var/www/{{user `project_name`}}",
     "order": "2"
   },
   {
     "type": "file",
     "source": "extensions/",
-    "destination": "/var/www/mediawiki/extensions",
+    "destination": "/var/www/{{user `project_name`}}/extensions",
     "order": "2"
   },
   {
     "type": "file",
     "source": "skins/",
-    "destination": "/var/www/mediawiki/skins",
+    "destination": "/var/www/{{user `project_name`}}/skins",
     "order": "3"
   }
 ]

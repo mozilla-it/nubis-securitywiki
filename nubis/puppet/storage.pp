@@ -9,7 +9,7 @@ nubis::storage { $project_name:
 ### puppet-nubis-storage
 
 # Link to our mountpoint
-file { '/var/www/mediawiki/images':
+file { "/var/www/${project_name}/images":
   ensure => 'link',
   force  => true,
   target => "/data/${project_name}/images",
