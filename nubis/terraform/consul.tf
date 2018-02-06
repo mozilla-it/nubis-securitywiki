@@ -69,4 +69,22 @@ resource "consul_keys" "config" {
     value  = "${var.region}"
     delete = true
   }
+
+  # For mod_auth_openidc
+  key {
+    name   = "openid_server_passphrase"
+    path   = "${module.consul.config_prefix}/OpenID/Server/Passphrase"
+    value  = "${random_id.openid_server_passphrase.b64_url}"
+    delete = true
+  }
+  key {
+    name   = "openid_server_memcached"
+    path   = "${module.consul.config_prefix}/OpenID/Server/Memcached"
+    value  = "${module.cache.endpoint}"
+    delete = true
+  }
+}
+
+resource "random_id" "openid_server_passphrase" {
+  byte_length = 16
 }
