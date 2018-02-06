@@ -26,13 +26,6 @@
     "source": "skins/",
     "destination": "/var/www/mediawiki/skins",
     "order": "3"
-  },
-  {
-    "type": "shell",
-    "inline": [
-      "sudo mkdir -p /etc/apache2/mozilla/mellon"
-    ],
-    "order": "99"
   }
 ]
 }
