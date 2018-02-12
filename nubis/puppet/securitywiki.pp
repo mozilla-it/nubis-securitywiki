@@ -1,15 +1,11 @@
 # Install mysql client libraries
 include mysql::client
 
-package { 'php5-mysql':
-  ensure => '5.5.9+dfsg-1ubuntu4.22'
+package { 'php-mysql':
+  ensure => 'latest'
 }
 
-package { 'php5-xcache':
-  ensure => '3.1.0-2'
-}
-
-package { 'php5-memcache':
+package { 'php-memcache':
   ensure => 'latest'
 }
 
@@ -19,18 +15,16 @@ include nubis_configuration
 
 nubis::configuration { $project_name:
   format => 'php',
-  #This is a PHP app, doesn't really need reloading
-  #reload => '/etc/init.d/apache2 reload',
 }
 
-file { [ '/etc/php5', '/etc/php5/apache2', '/etc/php5/apache2/conf.d' ]:
+file { [ '/etc/php', '/etc/php/7.0', '/etc/php/7.0/apache2', '/etc/php/7.0/apache2/conf.d' ]:
   ensure => directory,
   owner  => root,
   group  => root,
   mode   => '0744',
 }
 
-file { '/etc/php5/apache2/conf.d/30-securitywiki.ini':
+file { '/etc/php/7.0/apache2/conf.d/30-securitywiki.ini':
   ensure => file,
   owner  => root,
   group  => root,
