@@ -5,7 +5,7 @@
     "inline": [
       "sudo apt update",
       "sudo mkdir -p /var/www/{{user `project_name`}}",
-      "sudo chown ubuntu:ubuntu /var/www/{{user `project_name`}}"
+      "sudo chown nubis:nubis /var/www/{{user `project_name`}}"
     ],
     "order": "1"
   },
