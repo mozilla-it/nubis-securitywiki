@@ -9,6 +9,10 @@ package { 'php-memcache':
   ensure => 'latest'
 }
 
+package { 'composer':
+  ensure => 'latest',
+}
+
 # Use Nubis's autoconfiguration hooks to trigger out config reloads
 
 include nubis_configuration
@@ -24,15 +28,15 @@ file { [ '/etc/php', '/etc/php/7.0', '/etc/php/7.0/apache2', '/etc/php/7.0/apach
   mode   => '0744',
 }
 
-file { '/etc/php/7.0/apache2/conf.d/30-securitywiki.ini':
+file { "/etc/php/7.0/apache2/conf.d/30-$project_name.ini":
   ensure => file,
   owner  => root,
   group  => root,
   mode   => '0744',
-  source => 'puppet:///nubis/files/php/30-securitywiki.ini',
+  source => 'puppet:///nubis/files/php.ini',
 }
 
-file { '/data/securitywiki/php_sessions':
+file { "/data/$project_name/php_sessions":
   ensure => directory,
   owner  => www-data,
   group  => www-data,
