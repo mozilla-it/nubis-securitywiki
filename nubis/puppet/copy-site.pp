@@ -16,12 +16,6 @@ file { "/var/www/${project_name}/health.php":
   source => 'puppet:///nubis/files/health.php',
 }
 
-file { "/var/www/${project_name}/skins/Cavendish":
-  ensure => 'link',
-  target => "/var/www/${project_name}/extensions/gmo/skins/Cavendish",
-  force  => true,
-}
-
 file { "/var/www/${project_name}/skins/gmo":
   ensure => 'link',
   target => "/var/www/${project_name}/extensions/gmo/skins/gmo",
