@@ -178,5 +178,6 @@ $wgShowExceptionDetails = true;
 
 wfLoadSkin( 'MonoBook' );
 wfLoadSkin( 'Cavendish' );
+wfLoadSkin( 'Vector' );
 
 require_once("$IP/skins/gmo/gmo.php");
