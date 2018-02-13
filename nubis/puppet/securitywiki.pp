@@ -53,7 +53,7 @@ file { [ '/etc/php', '/etc/php/7.0', '/etc/php/7.0/apache2', '/etc/php/7.0/apach
   mode   => '0744',
 }
 
-file { "/etc/php/7.0/apache2/conf.d/30-$project_name.ini":
+file { "/etc/php/7.0/apache2/conf.d/30-${project_name}.ini":
   ensure => file,
   owner  => root,
   group  => root,
@@ -61,7 +61,7 @@ file { "/etc/php/7.0/apache2/conf.d/30-$project_name.ini":
   source => 'puppet:///nubis/files/php.ini',
 }
 
-file { "/data/$project_name/php_sessions":
+file { "/data/${project_name}/php_sessions":
   ensure => directory,
   owner  => www-data,
   group  => www-data,
