@@ -55,7 +55,7 @@ $wgStylePath        = "$wgScriptPath/skins";
 
 ## The relative URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
-$wgLogo             = "$wgStylePath/images/mozwiki.gif";
+$wgLogo             = "$wgStylePath/wiki_header_logo.gif";
 
 ## UPO means: this is also a user preference option
 
@@ -172,6 +172,8 @@ $wgStrictFileExtensions = false;
 wfLoadExtension( 'Auth_remoteuser' );
 
 $wgShowExceptionDetails = true;
+
+$cavendishLogoURL = $wgLogo;
 
 wfLoadSkin( 'MonoBook' );
 wfLoadSkin( 'Cavendish' );
