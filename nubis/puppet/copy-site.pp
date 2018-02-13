@@ -15,9 +15,3 @@ file { "/var/www/${project_name}/health.php":
   mode   => '0644',
   source => 'puppet:///nubis/files/health.php',
 }
-
-file { "/var/www/${project_name}/skins/gmo":
-  ensure => 'link',
-  target => "/var/www/${project_name}/extensions/gmo/skins/gmo",
-  force  => true,
-}

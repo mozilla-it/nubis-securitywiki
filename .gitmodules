@@ -8,9 +8,3 @@
 [submodule "skins/Cavendish"]
 	path = skins/Cavendish
 	url = https://github.com/DaSchTour/Cavendish.git
-[submodule "skins/gmo"]
-	path = skins/gmo
-	url = https://github.com/MozillaWiki/mediawiki-skins-gmo
-[submodule "extensions/gmo"]
-	path = extensions/gmo
-	url = https://github.com/mozilla/mediawiki-skins-gmo.git

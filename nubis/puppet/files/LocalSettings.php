@@ -50,7 +50,6 @@ switch($ENVIRONMENT) {
     $wgServer           = $SITE_URL;
 }
 
-
 ## The relative URL path to the skins directory
 $wgStylePath        = "$wgScriptPath/skins";
 
@@ -129,7 +128,7 @@ $wgUpgradeKey = "";
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook', 'vector':
-$wgDefaultSkin = "vector";
+$wgDefaultSkin = "cavendish";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -147,8 +146,6 @@ $wgDiff3 = "/usr/bin/diff3";
 # or if you have suhosin.get.max_value_length set in php.ini (then set it to
 # that value)
 $wgResourceLoaderMaxQueryLength = -1;
-
-
 
 # End of automatically generated settings.
 # Add more configuration options below.
@@ -179,5 +176,3 @@ $wgShowExceptionDetails = true;
 wfLoadSkin( 'MonoBook' );
 wfLoadSkin( 'Cavendish' );
 wfLoadSkin( 'Vector' );
-
-require_once("$IP/skins/gmo/gmo.php");
