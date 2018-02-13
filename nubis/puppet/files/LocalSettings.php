@@ -171,11 +171,12 @@ $wgGroupPermissions['*']['edit'] = false;
 putenv("TZ=UTC");
 
 $wgStrictFileExtensions = false;
-require_once('extensions/Auth_remoteuser/Auth_remoteuser.php');
-$wgAuth = new Auth_remoteuser();
+
+wfLoadExtension( 'Auth_remoteuser' );
 
 $wgShowExceptionDetails = true;
 
-require_once("$IP/skins/Cavendish/Cavendish.php");
-require_once("$IP/skins/Cavendish/Cavendish.php");
+wfLoadSkin( 'MonoBook' );
+wfLoadSkin( 'Cavendish' );
+
 require_once("$IP/skins/gmo/gmo.php");
