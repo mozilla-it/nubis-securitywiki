@@ -83,6 +83,19 @@ resource "consul_keys" "config" {
     value  = "${module.cache.endpoint}"
     delete = true
   }
+
+  key {
+    path   = "${module.consul.config_prefix}/Bucket/Backup/Name"
+    value  = "${module.backup.name}"
+    delete = true
+  }
+
+  key {
+    path   = "${module.consul.config_prefix}/Bucket/Backup/Region"
+    value  = "${var.region}"
+    delete = true
+  }
+
 }
 
 resource "random_id" "openid_server_passphrase" {
