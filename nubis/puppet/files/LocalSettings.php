@@ -71,10 +71,10 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype           = "mysql";
-$wgDBserver         = $DB_SERVER;
-$wgDBname           = $DB_NAME;
-$wgDBuser           = $DB_USERNAME;
-$wgDBpassword       = $DB_PASSWORD;
+$wgDBserver         = $Database_Server;
+$wgDBname           = $Database_Name;
+$wgDBuser           = $Database_User;
+$wgDBpassword       = $Database_Password;
 
 # MySQL specific settings
 $wgDBprefix         = "";
