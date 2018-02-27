@@ -19,7 +19,7 @@ Simple ELB
 
 ### SSO
 
-This entire application is protected behind mod_auth_openidc
+This entire application is protected behind [mod_auth_openidc](https://github.com/zmartzone/mod_auth_openidc)
 
 ### Database
 
@@ -34,7 +34,7 @@ EFS/NFS is used to store uploaded assets, mounted under
 
 ### Buckets
 
-An S3 bucket is used to store periodic backups of the [Storage](#Storage)
+An S3 bucket is used to store periodic backups of the [Storage](#storage)
 
 ### Cache
 
@@ -119,11 +119,11 @@ Hostname:Port of Elasticache/memcache
 
 #### storage/${project_name}/fsid
 
-[Storage](#Storage) Filesystem ID
+[Storage](#storage) Filesystem ID
 
 ## Cron Jobs
 
-Daily backup job copies data from [Storage](#Storage) to [Buckets](#Buckets)
+Daily backup job copies data from [Storage](#storage) to [Buckets](#buckets)
 
 ## Logs
 
