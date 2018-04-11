@@ -26,7 +26,7 @@ module "load_balancer" {
 }
 
 module "database" {
-  source                 = "github.com/nubisproject/nubis-terraform//database?ref=develop"
+  source                 = "github.com/nubisproject/nubis-terraform//database?ref=v2.2.0"
   region                 = "${var.region}"
   environment            = "${var.environment}"
   account                = "${var.account}"
