@@ -10,7 +10,7 @@ env:
   global:
   - IMAGE_NAME="itsre/securitywiki"
   - COMMIT="${TRAVIS_COMMIT::8}"
-  - secure: D4cKdI/hvQwXb6cj/plBOxjJvPHLTWgxTwBbCE9CsADoUpl2nq9//OJUmuIHb6MBOY/D5RWP2BwjWtlbkfpKDPTFEFU4m0juyi2KkhADnVFMWfF7h9aBvd2km+Erw1naq8drG7+dhIb/hBv32Y1AmbcGbkGBqIidRJGD5R5wnhKm4RABqzDb/ID3SglEcXMWqwBbkMqb4+b7btK3tbEMgm8Wjzfwf4xuvo//ulG+opG8RlR3Y1TiishvADVgVHfnYNFOifHphrriYJ4kluNXOumk/Tsi+9geNl6VBIR/s1XohmDauzvfE0l1Gh9oUm4eEnYC+aHxc8Qy9P26jxBH2YYovaBEi3Neppd4c1ShDhtwMnC3sPAakFAK7+e73/VT2Svq1dtE7aygfFbaOJz4jLcZJudQm9ayffeacMQbcfgzyrLLrGLdvTkkg1V7mwIMaJAhD4z5qu3VbpAlkRDWc7hAjRc1BKkhElfrfJ3ooeg9vkwaxj2ohfTLs6EpXsZaCNPq0gxwk2LxsSqaCO7qtdT7NN1pnwgMgE1oUZQ6EK2XGz9gHlwiDuzplVk5DMUmusXpEvv8W2Jj8UytqZzHSpGu8HisCsOY1a4EhukOTH/H4xLn3RrzmH7EnHvyNr0974X+ljOCYOZoaipyN5jeBaVT1so+D2qpsYl8OA+TsxE=
+  - secure: fQENSqvcQ43NWLc3PRf76cOSFIiQfL0XbI+hLi/JR5tK/BI7/YtjY7yU2Owk4TbTLzNvcgxE+j7zUHAOsc0DyfJpqSJeVUCBOEyB9F7UwTzJmtMEqsxRxbYBESBsx4vIrAAJuit3YRlb/jZ/ePMdcsjl7JFdn76p2la4UkaqV7dAcYg3/PgE0NMQewP6cmsTyO1eHieC+w5OxVyXSD3oxj3JtbRoVDILJeSFnJNHZke8KHtpbKfTyUOUkdtyZwOAk1TG45O/dMi5JWPF5GZCPYG4ZxQDOC3KKME+EKewI8W81qfTkyLsAEU+6L+FUGIy0TCijYHwtj+qHwcJSjVfNLsr1TPuq5Zg2TS0vE7Q9n3vpDwoFKdf9wD7v0HKFMbztndXjwe9XBiAa/ZFWaORhfcpj81bBV4yrk1VpUDc+AzNB2f0xqs+uTnw0IyK87wSDr8kkRtwuTBJ3ixmob1FZwfuf1fzpLWV+fUkE9V8DWKWXZ0cYhD18tvty2yKdDkvwZjj33UaN94bLj/VQl5OCD5GRiSVAtzeO8EChgFGu7ijr+TFBNNUjhEsbJ0Oi0jpZjClC/crk/Uvx/Cn6RWy9fWT7clAdVy1o2XcBjWqvs5PX5Bo8F3nQx3PmEDqCmFnSwuOUudgOwfRXaVdDuga2UgT+Krq6yI+H7bOyJhs9cw=
   - secure: pS6OiABsQ8bZzGPZkTRbPQGMNLBmO5Fi4WACwsQxq1Ck20ADAkx++zVGc00ukID1V7CzDn0HD06wJ37woyyfXt+U83e7i+JZO7+cAeMeh16QaUoE5ZYzm067SbP2r4g1tPsXvbof5TRaRQRX9pfqC8gYb80r+6cpfiuyCcMEx2mKGsAWinOblBUL7tq7bW39DiTWsyazXFRuiYjq3q+xwBmNSG0VjymDPYd2loXyfbDrMSlkLxhb4YtFhUdJPZcwbRmc8LuqV5inty2zKaTYulCMksvNOEdLQnWjWC9XlZ4PZlTeSvDBiZQtrshnKkZ1DSFAjnMP+ly4Z12LAblRbPsC06Y80LBV1zFzjvWT6fqiPN9tiZZKZvMs+RzqtBRkihSf2nqXwLqrOxS0ywm+cHgCzMOeIhOzo/A8hXAMeXDzliu7i9WZtI6h7A1v71qUr21QeaoJlO462QX4Bl+VDPBolW8k2JaMS/0GRc5cXNbfCJJlKRcrrc5RHF/9iTYhtOrbbhoTO3CdXiLTt4do5jYFWV/Vf8CSt3G4wwLAfeMTVqt0Ua94TEXCPHxPtExjw8twWkeHX7j8E+wwVxe++YzPcK5RIRVUj5k6Zq3sLt+3RuCxVEMesHUN0DLglrXtwehVcwjoWuBSmfwY2kOb8luus0PF8xhV/rL4MNOYTZY=
 
 before_script:
@@ -28,7 +28,7 @@ script:
   - docker build --tag "$IMAGE_NAME" --tag "$IMAGE_NAME:$COMMIT" .
 
 before_deploy:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
   - docker tag $IMAGE_NAME "$IMAGE_NAME:$REVISION_TAG"
   - docker tag $IMAGE_NAME "$IMAGE_NAME:$SYMBOLIC_TAG"
 
