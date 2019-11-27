@@ -11,3 +11,9 @@ nubis/builder/artifacts/
 nubis/terraform/terraform.tfstate*
 nubis/terraform/.terraform
 nubis/terraform/terraform.tfvars
+
+.env
+etc/ssl/*.key
+etc/ssl/*.crt
+etc/ssl/*.pem
+etc/ssl/*.csr
