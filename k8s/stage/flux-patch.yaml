@@ -10,5 +10,5 @@ spec:
       $setElementOrder/containers:
       - name: web
       containers:
-      - image: itsre/securitywiki:master-bf6ee1ec3b960ca11235f9fb32c86ac8fb829744
+      - image: itsre/securitywiki:master-8ed553c4839ff6725f1f2c0209c0a150a118e2ac
         name: web
