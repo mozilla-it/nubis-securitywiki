@@ -9,6 +9,7 @@ resources:
 
 patchesStrategicMerge:
 - ssl-patch.yaml
+- service-patch.yaml
 
 patchesJson6902:
 - target:
