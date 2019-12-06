@@ -1,0 +1,14 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: securitywiki
+  namespace: securitywiki-stage
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: web
+      containers:
+      - image: itsre/securitywiki:master-2d174012b8492265963f6be45c67dd1eb6ef8942
+        name: web
