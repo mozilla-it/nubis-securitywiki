@@ -66,3 +66,18 @@ spec:
                 configMapKeyRef:
                   name: securitywiki-cm
                   key: memcached.port
+            - name: OIDC_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: securitywiki-secrets
+                  value: oidc.client_id
+            - name: OIDC_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: securitywiki-secrets
+                  value: oidc.client_secret
+            - name: OIDC_CRYPTO_PASSPHRASE
+              valueFrom:
+                secretKeyRef:
+                  name: securitywiki-secrets
+                  value: oidc.crypto_passphrase
