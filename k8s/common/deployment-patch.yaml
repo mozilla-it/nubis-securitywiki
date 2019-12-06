@@ -6,3 +6,4 @@ metadata:
   annotations:
     flux.weave.works/automated: "true"
     flux.weave.works/tag.web: "glob:master-*"
+    configmap.reloader.stakater.com/reload: "securitywiki-cm"
