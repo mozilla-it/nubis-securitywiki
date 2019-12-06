@@ -38,46 +38,31 @@ spec:
               value: https://securitywiki.allizom.org.unset
             - name: MYSQL_HOST
               valueFrom:
-                configMapRef:
+                configMapKeyRef:
                   name: securitywiki-cm
-                  value: database.host
+                  key: database.host
             - name: MYSQL_USER
               valueFrom:
-                configMapRef:
+                configMapKeyRef:
                   name: securitywiki-cm
-                  value: database.user
+                  key: database.user
             - name: MYSQL_DATABASE
               valueFrom:
-                configMapRef:
+                configMapKeyRef:
                   name: securitywiki-cm
-                  value: database.name
+                  key: database.name
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: securitywiki-secrets
-                  value: database.password
+                  key: database.password
             - name: MEMCACHED_HOST
               valueFrom:
-                configMapRef:
+                configMapKeyRef:
                   name: securitywiki-cm
-                  value: memcached.host
+                  key: memcached.host
             - name: MEMCACHED_PORT
               valueFrom:
-                configMapRef:
+                configMapKeyRef:
                   name: securitywiki-cm
-                  value: memcached.port
-            - name: OIDC_CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: securitywiki-secrets
-                  value: oidc.client_id
-            - name: OIDC_CLIENT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: securitywiki-secrets
-                  value: oidc.client_secret
-            - name: OIDC_CRYPTO_PASSPHRASE
-              valueFrom:
-                secretKeyRef:
-                  name: securitywiki-secrets
-                  value: oidc.crypto_passphrase
+                  key: memcached.port
