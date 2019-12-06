@@ -70,14 +70,14 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: securitywiki-secrets
-                  value: oidc.client_id
+                  key: oidc.client_id
             - name: OIDC_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
                   name: securitywiki-secrets
-                  value: oidc.client_secret
+                  key: oidc.client_secret
             - name: OIDC_CRYPTO_PASSPHRASE
               valueFrom:
                 secretKeyRef:
                   name: securitywiki-secrets
-                  value: oidc.crypto_passphrase
+                  key: oidc.crypto_passphrase
