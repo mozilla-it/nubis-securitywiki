@@ -8,10 +8,6 @@ resources:
 patchesStrategicMerge:
   - deployment-patch.yaml
 
-images:
-  - name: itsre/securitywiki
-    newTag: latest
-
 commonLabels:
   team: itsre
   costcenter: "1410"
