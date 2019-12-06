@@ -4,6 +4,9 @@ namespace: securitywiki-stage
 bases:
   - ../common
 
+resources:
+  - sealedsecret.yaml
+
 patchesStrategicMerge:
 - ssl-patch.yaml
 
