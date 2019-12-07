@@ -1,0 +1,17 @@
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: securitywiki-prod
+  labels:
+    app: securitywiki
+spec:
+  capacity:
+    storage: 1000Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: "Retain"
+  nfs:
+    path: "/"
+    server: "fs-d663987c.us-west-2.amazonaws.com"
+  storageClassName: efs
