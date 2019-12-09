@@ -6,7 +6,7 @@ bases:
 
 resources:
   - sealedsecret.yaml
-    #- pv.yaml
+  - pv.yaml
 
 patchesStrategicMerge:
 - ssl-patch.yaml
