@@ -67,7 +67,8 @@ COPY skins/wiki_header_logo.gif /var/www/html/skins/wiki_header_logo.gif
 RUN set -eux; \
 	echo ". /etc/profile.d/apache.sh" >> /etc/apache2/envvars; \
 	chmod 0644 /etc/securitywiki/securitywiki.php; \
-	chown -R www-data:www-data /var/www/html; \
+	mkdir -p /data/securitywiki; \
+	chown -R www-data:www-data /var/www/html /data/securitywiki; \
 	a2enmod headers rewrite expires auth_openidc; \
 	composer install --no-dev --verbose; \
 
