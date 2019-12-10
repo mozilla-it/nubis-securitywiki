@@ -4,7 +4,7 @@ resources:
 - deployment.yaml
 - hpa.yaml
 - service.yaml
-  #- pvc.yaml
+- pvc.yaml
 
 patchesStrategicMerge:
   - deployment-patch.yaml
