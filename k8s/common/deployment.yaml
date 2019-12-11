@@ -30,9 +30,9 @@ spec:
             limits:
               memory: 128Mi
               cpu: "128m"
-            volumeMounts:
-              - name: securitywiki-fs
-                mountPath: /data/securitywiki
+          volumeMounts:
+            - name: securitywiki-fs
+              mountPath: /data/securitywiki
       containers:
         - name: web
           image: itsre/securitywiki:master-latest
