@@ -13,5 +13,5 @@ spec:
   persistentVolumeReclaimPolicy: "Retain"
   nfs:
     path: "/"
-    server: "fs-d663987c.us-west-2.amazonaws.com"
+    server: "fs-d663987c.efs.us-west-2.amazonaws.com"
   storageClassName: efs
