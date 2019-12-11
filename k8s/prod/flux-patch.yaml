@@ -15,5 +15,5 @@ spec:
       - image: itsre/securitywiki:master-9f76072d90248bbf3f0ff433408da1520f34e557
         name: web
       initContainers:
-      - image: itsre/securitywiki:master-9f76072d90248bbf3f0ff433408da1520f34e557
+      - image: itsre/securitywiki:prod-881fc24a38c9ee2701468ef91a8547bf6dcbd0ce
         name: migrate
