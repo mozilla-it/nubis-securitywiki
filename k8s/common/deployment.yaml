@@ -15,10 +15,6 @@ spec:
       labels:
         app: securitywiki
     spec:
-      volumes:
-        - name: securitywiki-fs
-          persistentVolumeClaim:
-            claimName: securitywiki-shared
       containers:
         - name: web
           image: itsre/securitywiki:master-latest
@@ -35,9 +31,6 @@ spec:
             limits:
               memory: 512Mi
               cpu: "512m"
-          volumeMounts:
-            - name: securitywiki-fs
-              mountPath: /data/securitywiki
           env:
             - name: ENVIRONMENT
               value: stage.unset
