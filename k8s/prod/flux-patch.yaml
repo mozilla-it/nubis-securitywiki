@@ -9,6 +9,11 @@ spec:
     spec:
       $setElementOrder/containers:
       - name: web
+      $setElementOrder/initContainers:
+      - name: migrate
       containers:
       - image: itsre/securitywiki:master-a81c42589a486b6e556a8f4f13dba899e22d6929
         name: web
+      initContainers:
+      - image: itsre/securitywiki:master-a81c42589a486b6e556a8f4f13dba899e22d6929
+        name: migrate
