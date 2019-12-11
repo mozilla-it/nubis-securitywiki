@@ -19,6 +19,20 @@ spec:
         - name: securitywiki-fs
           persistentVolumeClaim:
             claimName: securitywiki-shared
+      initContainers:
+        - name: migrate
+          image: itsre/securitywiki:master-latest
+          command: [ "/bin/bash", "-c", "chown www-data:www-data /data/securitywiki && find /data/securitywiki \\! -user www-data -exec chown -R www-data:www-data {} \\;" ]
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: "128m"
+            limits:
+              memory: 128Mi
+              cpu: "128m"
+            volumeMounts:
+              - name: securitywiki-fs
+                mountPath: /data/securitywiki
       containers:
         - name: web
           image: itsre/securitywiki:master-latest
