@@ -131,7 +131,8 @@ $wgUpgradeKey = "";
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook', 'vector':
-$wgDefaultSkin = "cavendish";
+#$wgDefaultSkin = "cavendish";
+$wgDefaultSkin = "vector";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -176,11 +177,11 @@ wfLoadExtension( 'Auth_remoteuser' );
 
 $wgShowExceptionDetails = true;
 
-wfLoadSkin( 'MonoBook' );
-wfLoadSkin( 'Cavendish' );
+#wfLoadSkin( 'MonoBook' );
+#wfLoadSkin( 'Cavendish' );
 wfLoadSkin( 'Vector' );
-wfLoadSkin( 'CologneBlue' );
-wfLoadSkin( 'Modern' );
+#wfLoadSkin( 'CologneBlue' );
+#wfLoadSkin( 'Modern' );
 
-$wgCavendishQRCode = false;
-$wgCavendishLogoURL = "$wgLogo";
+#$wgCavendishQRCode = false;
+#$wgCavendishLogoURL = "$wgLogo";
