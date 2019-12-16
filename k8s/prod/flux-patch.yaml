@@ -12,8 +12,8 @@ spec:
       $setElementOrder/initContainers:
       - name: migrate
       containers:
-      - image: itsre/securitywiki:master-9f76072d90248bbf3f0ff433408da1520f34e557
+      - image: itsre/securitywiki:master-80ec141157bca3044b1ee1529a0af1b7b0c12787
         name: web
       initContainers:
-      - image: itsre/securitywiki:prod-881fc24a38c9ee2701468ef91a8547bf6dcbd0ce
+      - image: itsre/securitywiki:master-80ec141157bca3044b1ee1529a0af1b7b0c12787
         name: migrate
