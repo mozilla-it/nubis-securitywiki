@@ -177,11 +177,11 @@ wfLoadExtension( 'Auth_remoteuser' );
 
 $wgShowExceptionDetails = true;
 
-#wfLoadSkin( 'MonoBook' );
+wfLoadSkin( 'MonoBook' );
 #wfLoadSkin( 'Cavendish' );
 wfLoadSkin( 'Vector' );
-#wfLoadSkin( 'CologneBlue' );
-#wfLoadSkin( 'Modern' );
+wfLoadSkin( 'CologneBlue' );
+wfLoadSkin( 'Modern' );
 
 #$wgCavendishQRCode = false;
 #$wgCavendishLogoURL = "$wgLogo";
