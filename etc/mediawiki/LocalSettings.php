@@ -44,7 +44,8 @@ switch($ENVIRONMENT) {
     $wgServer           = "https://securitywiki.allizom.org";
     break;
   case "prod":
-    $wgServer           = "https://securitywiki.mozilla.org";
+    #$wgServer           = "https://securitywiki.mozilla.org";
+    $wgServer           = "https://securitywiki-prod.itsre-apps.mozit.cloud";
     break;
   case "local":
     $wgServer           = "https://securitywiki-127-0-0-1.nip.io";
