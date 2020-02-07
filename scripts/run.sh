@@ -22,11 +22,11 @@ do
     --help)
         usage
     ;;
-	--setup)
-		SETUP_ARG=1
+    --setup)
+        SETUP_ARG=1
 	;;
-	--clean)
-		CLEAN_ARG=1
+    --clean)
+        CLEAN_ARG=1
 	;;
     --build)
     	BUILD_ARG=1
@@ -48,9 +48,9 @@ if [ -n "${CLEAN_ARG}" ]; then
 fi
 
 if [ -n "${SETUP_ARG}" ]; then
-	echo "Setting up environment"
-	echo "Generating .env file"
-	cat << EOF > .env
+    echo "Setting up environment"
+    echo "Generating .env file"
+    cat << EOF > .env
 ENVIRONMENT=local
 MYSQL_HOST=db
 MYSQL_USER=admin

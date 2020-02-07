@@ -31,9 +31,15 @@ RUN set -eux; \
 	apt-get install -y --no-install-recommends \
 			libxml2-dev \
 			zip \
-			libzip-dev && \
+			libzip-dev \
+			libz-dev \
+			libmemcached-dev && \
 	docker-php-ext-configure zip --with-libzip && \
-    docker-php-ext-install -j "$(nproc)" zip && \
+	docker-php-ext-install -j "$(nproc)" zip && \
+	docker-php-ext-install -j "$(nproc)" mbstring xml && \
+	pecl install memcached && \
+	docker-php-ext-enable memcached && \
+	echo "extension=memcache.so" >> /usr/local/etc/php/conf.d/memcached.ini && \
 	apt-get purge -y --auto-remove && \
 	apt-get clean -y && \
 	apt-get autoclean -y && \
@@ -62,6 +68,7 @@ COPY etc/apache/000-securitywiki.conf /etc/apache2/sites-enabled/000-default.con
 COPY etc/apache/openidc.conf /etc/apache2/conf-enabled/openidc.conf
 COPY etc/apache/apache.sh /etc/profile.d/apache.sh
 COPY skins/wiki_header_logo.gif /var/www/html/skins/wiki_header_logo.gif
+COPY etc/php.ini /usr/local/etc/php/conf.d/php.ini
 
 # Misc
 RUN set -eux; \

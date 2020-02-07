@@ -44,7 +44,8 @@ switch($ENVIRONMENT) {
     $wgServer           = "https://securitywiki.allizom.org";
     break;
   case "prod":
-    $wgServer           = "https://securitywiki.mozilla.org";
+    #$wgServer           = "https://securitywiki.mozilla.org";
+    $wgServer           = "https://securitywiki-prod.itsre-apps.mozit.cloud";
     break;
   case "local":
     $wgServer           = "https://securitywiki-127-0-0-1.nip.io";
@@ -132,6 +133,7 @@ $wgUpgradeKey = "";
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook', 'vector':
 $wgDefaultSkin = "cavendish";
+#$wgDefaultSkin = "vector";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -182,5 +184,5 @@ wfLoadSkin( 'Vector' );
 wfLoadSkin( 'CologneBlue' );
 wfLoadSkin( 'Modern' );
 
-$wgCavendishQRCode = false;
-$wgCavendishLogoURL = "$wgLogo";
+#$wgCavendishQRCode = false;
+#$wgCavendishLogoURL = "$wgLogo";
