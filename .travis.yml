@@ -19,6 +19,7 @@ before_script:
 after_script:
 - docker images
 script:
+- pip install awscli
 - docker build --tag "$ECR" --tag "$ECR:$COMMIT" .
 deploy:
   provider: script
