@@ -1,43 +1,36 @@
-language: minimal
+language: python
 services:
-  - docker
-
+- docker
 branches:
   except:
   - "/^flux-*/"
-
-env:
-  global:
-    - IMAGE_NAME="itsre/securitywiki"
-    - COMMIT="${TRAVIS_COMMIT::8}"
-    - secure: "ZfeDjBHtXcDpjFWgytZ1CaJ+AlrM/rFwXL9CHbrgcJW4MVT3Vv8QD9hMJjchWwhlNhkNYm0fPtorud8ZQz5uWCYP17kUGgIbcwNVcBInCNCz0K+KmWVU/0M9qCF6LE6u8lQ1WYasVHXNl18Gp020ajxxQSvy8TqfFbQj+m8p0tBXILal4N1X9BXDt0OvrFtu4mT6uzslhCgWHfAJxFL4kRWmVaayYJHwbSUA4WnaFd0S+VJeIgvp5H/0rP2qpsT5UVQUzAnbmYGeBMvKfvZCpfQVfekQiHMIlTcHQ7Wg+3VA3AZzUXRW9x4ALOKIL9erUUC9SUMZGdIY6vNJJEYx1fYgtRUEEitNqJkd4gxLPIsv9UWFnGcPWw7tlg+VLWVE402n6AEEcFfqpRp2NKFxUPFaTWJB7CeUyxoDnud3bbfaPhq/xl9D7qjbfxAqSF/UXv+cZpJ0wCeBUTlSDQtwhKpSJHtb9Ik6p/xLt3tYQ9Qt7vFby3dw0hRI1JGQXencH5kYoKjH/2LsG4hLP/sSdu00DWdUmjyFhJZiu1CH9mWkO+8F3f6fcO10wuTFljGJrMavE0wbA62LOTbWd4dWW/7fRjyqekufy3T6MvQsM+dkMMyep8umt1mQBHx+Qpb+Vr8Uz/fhKPRfE6+q2A48wuJPSFrv3J0H6IrQ0H0BYqo="
-    - secure: "OWnxiGaIHov/dUkIDD5kF2ZbCPdzU6E2+H86Ck3zf32kHNaS3OOZ9o3vGYds4J+0qdRqbIaD1So0CULX/dRA8Er74vCfbdHUy3vRr92rRHl3xgjrKNPagLu0tkjEtcFxoudcP4IQqsWy70grRzbOvi0LPRSAq4q8NTJPvaTpolr6FB7pRWfszxTnIFJA+8i9SCRNvUshM/toKzC1Pcr/t8tAgtnkq2aosVgRvFwe/go5ZuY2UJ6b+yDGn+e+iT8oZzLyxqG+kWnxyVJSooMIXs7v1d8XiW+Hy1Dd46tSt0V/BTMYOpCBWWDTe2SJqvYXH0zvF99B9wE/gbftQk7rUF59Fu0Zdjpje8LIOISnSaQoXfrWSZZ8q19jVJ786tHhGuV+liW/iUn88tC4Oq7+CjuWxLqCIvENyZCBGghDr9Sa0JFvRlJUy5co9G7SiH8e8iMvOrW4ShZhLEdx0NhyDsgNjwWT1ZI+UzDSmc6/0Kj53nQtPcbWfoeSLJrU4VCEBnyTS5g/EXXR17jykxTPOGvrz95T6EqcMxW5uF4c9mven7CAVe3rDZ2HlQJbaaK92qIHahq8DFWY4xCuyr2VhqEMgjQLmcTzlTLG+5WEmrUEtynLZOmyuQw5Z52kq9fkVnnMWf+Y10m7tWmsfwwEOuvh9MQM3icoi6rv6m1jGZ4="
-    - secure: "JEiQUVep5/WX7Por3TYE3nGBwvHCzW6qfUBBB42aIv5RcCG80v0qnTkhRZz6gPT2204N1I6gp74hAIel/buQ63aatQ3BvQ64yW6fcZJDLt8+qcb7G5GBwJuOeCe5EWdTaXu0BsbiMITlTWGJajqoL6ptcr0U/zDf9y/i4Hybe5sHPWGWFLvb+0fFwBDiV8jJtvZunsixviqnjjrki/LMy+EJ8f/KOxuke1OyzyiifgwwsljZ3g4HiHwZ72xBUGafQ3EP4FL4VPPTZTCYBbeLzawb/hV/LDFUg6MYn1rAznEMwohWR/nCWPejKjXPz0CTQN601nSqon6lUvmuAiHCH9eMLlpwdz41dfSVuGoO4COaMDVNva9MX8vEGxEGJNO1cRT2Muy+CF/hhhw9l+HNceoVRDAcFXZAxniwhDUFqWXBwkJ/1lCIm8xZtIUdgS/Ts52J4Nw/UZfOIvcMGpCb+UK3MOF2PB+k9zfac7tnjTGMv7HqDqNG9IhT36/85oC233y7cX9paCGzig5l+wi4k88MVQRNWSyq4d7uJ3kzXzJhg3jY+/uQSq77zeu2GYjmvfDZDYmgdOJOy0wKcCZxmeqdGAWm6cotMOx0qLIHWDks9V8P2yodPMP0rpDa1Qttn+BvCesIzlL55BDzwGFGwxfzuUsp6I8ctgOC7PQ2PIY="
-    - secure: "Kj2V6rAT6Pu1B6y0Riaz/bTGpbI+FH1B107e/wfABE8di6adWgA3hrkcBqfhhWGLcLr++RG3TgZS1D9H2xBmlqqJZJriq5ots8KiSpCl2EWIhYU8WGOeQoRl+WewuRKGFf8w3z7Ijef9IdqwMV+XwbxVrmyz0D6TmR3F5gI5VTI7emtYEe6XkmRQ/pgs+xApFLVIghyn6ulXMK7fc4+8DAnBu7dLPiNkxOXKIzgd5zY5ulphXZ0PUFQVUROhSJyju4fytSPKJV+4T3fHdF0NPgcbHGAA47o+ex/YCjfcXlYWsIDv+1B/qcd81OXUk+6MB5EMhGQL7UVSaAvpPLZm38Ona7wC/Hi0gL5XFWsmSpoibzTsjmoVfsLZ4yaReMMX8lXwkB72OhePiGEU1vYe4MN5jwlBfqaVDF2re3Era3vTC1PWa5A7KYkKzkg4Lndsf7TinkkhqYYH6I05pkcWPiuAHQYaXH4eNL4W3372sIcsC3K2vVigZebYVBw11xnh9GL3IudSGQ+0F/TpGDqphHB2iIOU6UsJpjrbCJju7ejH4yYYJMB3oKyct6IuQBHpvKM4vp6gQ3d279JV96vBy5w/KWpw7Dm1vz511dJtBB7TNicx9+2VVSHkqW3gyXXXyLYrEHzE2w+CjgmrQVbCYFYsBFmngtWwBEo95LjBP3s="
-
-before_script:
-  - SAFE_BRANCH_NAME=$(echo -n $TRAVIS_BRANCH | perl -pe's/[^a-zA-Z0-9_.-]/_/g' )
-  - REVISION_TAG="$SAFE_BRANCH_NAME-$TRAVIS_COMMIT"
-  - if [ "$TRAVIS_TAG" == "" ]; then SYMBOLIC_TAG="$SAFE_BRANCH_NAME-latest"; else SYMBOLIC_TAG="$TRAVIS_TAG"; fi
-  - echo "Branch $SAFE_BRANCH_NAME"
-  - echo "Tag $TRAVIS_TAG"
-  - if [ "$TRAVIS_TAG" == "" ]; then docker pull "$IMAGE_NAME:$SYMBOLIC_TAG" || true; fi
-
-after_script:
-  - docker images
-
-script:
-  - docker build --tag "$IMAGE_NAME" --tag "$IMAGE_NAME:$COMMIT" .
-
 before_deploy:
-  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-  - docker tag $IMAGE_NAME "$IMAGE_NAME:$REVISION_TAG"
-  - docker tag $IMAGE_NAME "$IMAGE_NAME:$SYMBOLIC_TAG"
-
+- eval $(aws ecr get-login --no-include-email --region us-west-2)
+- docker tag $ECR "$ECR:$REVISION_TAG"
+- docker tag $ECR "$ECR:$SYMBOLIC_TAG"
+before_script:
+- SAFE_BRANCH_NAME=$(echo -n $TRAVIS_BRANCH | perl -pe's/[^a-zA-Z0-9_.-]/_/g' )
+- REVISION_TAG="$SAFE_BRANCH_NAME-$TRAVIS_COMMIT"
+- if [ "$TRAVIS_TAG" == "" ]; then SYMBOLIC_TAG="$SAFE_BRANCH_NAME-latest"; else SYMBOLIC_TAG="$TRAVIS_TAG";
+  fi
+- echo "Branch $SAFE_BRANCH_NAME"
+- echo "Tag $TRAVIS_TAG"
+- if [ "$TRAVIS_TAG" == "" ]; then docker pull "$ECR:$SYMBOLIC_TAG" || true; fi
+after_script:
+- docker images
+script:
+- docker build --tag "$ECR" --tag "$ECR:$COMMIT" .
 deploy:
   provider: script
   on:
     all_branches: true
     condition: $TRAVIS_TAG != "" || $TRAVIS_BRANCH =~ ^(master|prod)$
   script:
-    - docker push "$IMAGE_NAME:$REVISION_TAG" && docker push "$IMAGE_NAME:$SYMBOLIC_TAG"
+  - docker push "$ECR:$REVISION_TAG" && docker push "$ECR:$SYMBOLIC_TAG"
+env:
+  global:
+  - secure: WMjdUMseyXBk+84Ei/AsJCgE9/H68vmviKpV1ziTFq3H8XnVvq3po0rZMJPCFqRnMgVRIkdWvwU0kUdi/IgWk53DPE1wH3X7QPUtX7r2sbrfbvPqM8VZkTZnW8KU1QLCOKeWS1zqDHK9jxx1wz1mjBwxAoyvh16RUH9NecrXRM/Gk5Yfs1oYbgq7Yi8lpzUxyAS0f19JKv09R4vIZIf3+As49zoHS/FlIKd5C0pF/c67NVisajC34TUFOIb2S8q8h8UQ0JvsAvmVoVora6QF9iN5HkkNb5UMaQVDgOMXeYr/HjQ/+epy/GSQuj2p6Lsrt3Eo6D2A2wg5Qn6kDzP4sdrFr5TqD0G2aIRhicdz2tS6oOLDWcLpqd1uH2+cY2zknIXMlgBbal+ujkqoaOTnSayEZlhz8FQfNyRFhVfcIRtVVLqsw0vE5sU3hnL/3gLCUuhq9Vh0v22KqYiy51rvJ45vWvxTQZGNcpZDkH4B7zexX3cz4ZdX8bT1X6f8LhwlNircQggV0PvlUjRYWXYz/bTzVKtJv8k43omGIvp6M4ZXmMCc6Iv61u7zTNNGyoz/+Fas094fgQT1s8kEhbg/+cDPviJEySSzd+jIxVnzO0RBXpLaYusnWVzJ4TWWujPMUbqXSSTyZb+g4KwzcrXOA7mEKgd4PxuYQ6MRvYHLzzA=
+  - secure: OSmwhs5Hr3mkMn8tR2vACF6qOs6dHboHIGrgp3sV/UyRivO0dTyyVo+Ahq7KlX3LabRarP5DEMGb+wGiCPmXtMYGozbztkb2p4/dT0BJkkQapxa1xpwZr+xPCm3nuCJSQJsjglZNdaVZKXTSdlhJGUXM8nrCAPCvBmwH5VWLOhizUp2LF9TmGsEfNcnvrXV8MSy6609o8KhEQx+hYgFpItSZrclqtIPc2w922TCVraIjsP/1ofjj2333+DoHBufkyYRreWpEmysBR9Lgkt+jjw7sLsN92V5XV3Pj0LfmnOv3wN4yoImmzm1VNx7B9oOzyvHdnrAZ8zksddxRCr29tEgwIsT945bwauNdPALNGWfN13XEDGjKP/cj/A2UG2JZ6AWML29LT4Dxuj6SBM/nJGO8P3ds5WO6X5UudrPdWxVpxgTtLknxqQAEkjhXz4paje6hq74/2GoNV4oc9MSPX8ulbb/Gbs02gJPs/h+ZT2vsxIdmu8sfHFZwozpJ80MZYG9sWhmU/cBEHfZ9pLITFU/slk5nq3L+6Gw3qJqMOOXbksto5y6ZEE/xbtrB283n0MfdWehCmhvAzExOY+jPtAQheCi9TtyCTsuJYVUW/yGUOOsFU9KZrAuEmLdXumxgv287JpE3x22ALhOR2uFdG9D0++8FA2ByeuT2yQfdMjY=
+  - secure: SvFP0BDTOYU8fHdLvUVEVkIEf5MT/j7Qs2gSE+jgBbnA1+FFuezbEyE4mUg4AIjCNPlNQpqOZN/dzZLcHi6dyNwbZMw5efgs+RtmoyTrAbMsbmMkHgFDNjVhwHXMQUj0ghcvLw/g/J37syIXB5379uOn6ORjdG5oBo+vmUMb9E6gt5+jqPJD08e8T/sf4uldmDvbKBt3c3yExJLw3L41X52MkLi1eCtqp267PUQ1Z2j5bH9nsDwEQ99/0aW6vgNbAx3og2GgzdirMCR8MmAEDPSycQR6hsPkKcTJHjD0ZuqCHFKBgbicjn8/NmZdsTnSRC9PQJM3LmkUc9WQottbNNXD90yvENsGVMwBI6is04Uj2bosM0i/Tga2X6KxsyBiMHZdI691lX2JKqeyo6RCEy3ZO+LOO+SZpwU6KqqHLlA4ZFnjCNLLQ2I4NVUaLG0MK2QyO+D1WjzVDm/5pKOPpxVkvnrw7HlVcqAJb3rTX8tgPdCJmEpqZTD13Q8KV25coDthZQV7GV4emJ3Wq0UEc0GBfA4Z8IMEgOrVQSYp7Ss/G7Q4AvSkACMRWb5kBbgh1hlVZnfPEnMYSW22mS3cxy6GJ8Rb2Y1jEFWdnWq02pumWrYMOSQ9c2c4cathHV57QB3KjmBXV5XucMs6UABjKpPTmRssioFGDQoqhRLffl4=
+  - COMMIT="${TRAVIS_COMMIT::8}"
+  - ECR="$AWS_ACCOUNT_ID.dkr.ecr.us-west-2.amazonaws.com/securitywiki"
