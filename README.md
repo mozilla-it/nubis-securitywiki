@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mozilla-it/nubis-securitywiki.svg?branch=master)](https://travis-ci.com/mozilla-it/nubis-securitywiki)
+
 # Securitywiki Nubis deployment repository
 
 This is the deployment repository for
