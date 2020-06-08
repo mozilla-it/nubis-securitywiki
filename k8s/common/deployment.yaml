@@ -21,7 +21,7 @@ spec:
             claimName: securitywiki-shared
       initContainers:
         - name: migrate
-          image: itsre/securitywiki:master-latest
+          image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/securitywiki:master-latest
           command: [ "/bin/bash", "-c", "chown www-data:www-data /data/securitywiki && find /data/securitywiki \\! -user www-data -exec chown -R www-data:www-data {} \\;" ]
           resources:
             requests:
@@ -35,7 +35,7 @@ spec:
               mountPath: /data/securitywiki
       containers:
         - name: web
-          image: itsre/securitywiki:master-latest
+          image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/securitywiki:master-latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 443
