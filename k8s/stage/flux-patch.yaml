@@ -12,8 +12,8 @@ spec:
       $setElementOrder/initContainers:
       - name: migrate
       containers:
-      - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/securitywiki:master-e462fa7bb6dd63a49e331120f7e62e5132946782
+      - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/securitywiki:master-6ca0e18c02e5fe8f741166db4c75f78b3ab5a1d8
         name: web
       initContainers:
-      - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/securitywiki:master-e462fa7bb6dd63a49e331120f7e62e5132946782
+      - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/securitywiki:master-6ca0e18c02e5fe8f741166db4c75f78b3ab5a1d8
         name: migrate
