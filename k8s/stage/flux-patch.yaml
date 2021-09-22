@@ -15,5 +15,5 @@ spec:
       - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/securitywiki:master-cccd24f1c4e62fef09ff2d0625f29ee91277a270
         name: web
       initContainers:
-      - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/securitywiki:stg-test
+      - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/securitywiki:33dc56da0fcfc803de9f08b29aa157c3e26a8e34
         name: migrate
