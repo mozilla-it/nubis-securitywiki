@@ -1,7 +1,0 @@
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: securitywiki-shared
-spec:
-  volumeName: securitywiki-stage
